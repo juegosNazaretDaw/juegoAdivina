@@ -1,4 +1,4 @@
-package com.example.demoreto3;
+package com.example.juegoadivina;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
