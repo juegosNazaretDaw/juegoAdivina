@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a1fdd672-3d9e-42c3-a12a-cdefc5b3dd5a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/CantidadJugadoresView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/CantidadJugadoresView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/HistoriaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/HistoriaView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/InicioView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/InicioView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/CantidadJugadoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/CantidadJugadoresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/NombreJugadorView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/NombreJugadorView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RondaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RondaView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,30 +28,27 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2Os4XXZ3tTUzPVSakAilc1Bw06c" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/ikers/Desktop/Nazaret/juegoAdivina/src/main/resources/com/example/juegoadivina",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sakis/Desktop/reto3/juegoAdivina&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ikers\Desktop\Nazaret\juegoAdivina\src\main\resources\com\example\juegoadivina" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.juegoadivina" />
-    </key>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,6 +59,17 @@
       <updated>1682335997921</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
