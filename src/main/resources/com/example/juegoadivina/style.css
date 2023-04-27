@@ -1,0 +1,30 @@
+.pane{
+  -fx-background-image: url('./img/isla.jpeg');
+
+  -fx-background-position: center center;
+
+}
+.titulo {
+    -fx-font-size: 37px;
+    -fx-text-fill: black;
+}
+.texto {
+    -fx-background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco con 70% de opacidad */
+    -fx-text-fill: black; /* Letra negra */
+}
+
+.button{
+
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.button:hover {
+    -fx-background-color: black;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
