@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.InicioView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.InicioController">
    <children>
-      <Button layoutX="98.0" layoutY="175.0" mnemonicParsing="false" text="jugar" />
-      <Button layoutX="258.0" layoutY="175.0" mnemonicParsing="false" text="instrucciones" />
-      <Button layoutX="442.0" layoutY="175.0" mnemonicParsing="false" text="ranking" />
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane">
+         <children>
+            <Button layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#JugarHistoria" prefHeight="47.0" prefWidth="100.0" text="Jugar" />
+            <Button layoutX="250.0" layoutY="245.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="100.0" text="Ranking" />
+            <Button layoutX="350.0" layoutY="150.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="100.0" text="Instrucciones" />
+            <Label layoutX="186.0" layoutY="46.0" prefHeight="54.0" prefWidth="234.0" styleClass="titulo" text="NOMBRE ISLA">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
