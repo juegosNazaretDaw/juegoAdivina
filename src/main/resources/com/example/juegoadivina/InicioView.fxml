@@ -12,7 +12,7 @@
          <children>
             <Button layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#JugarHistoria" prefHeight="47.0" prefWidth="100.0" text="Jugar" />
             <Button layoutX="250.0" layoutY="245.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="100.0" text="Ranking" />
-            <Button layoutX="350.0" layoutY="150.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="100.0" text="Instrucciones" />
+            <Button layoutX="350.0" layoutY="150.0" mnemonicParsing="false" onAction="#VerInstrucciones" prefHeight="47.0" prefWidth="100.0" text="Instrucciones" />
             <Label layoutX="186.0" layoutY="46.0" prefHeight="54.0" prefWidth="234.0" styleClass="titulo" text="NOMBRE ISLA">
                <font>
                   <Font size="37.0" />
