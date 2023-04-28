@@ -5,17 +5,23 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.CantidadJugadoresController">
     <children>
         <Pane layoutX="177.0" layoutY="29.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <TextField layoutX="226.0" layoutY="188.0" />
+                <TextField fx:id="cantidadJugadoresTF" layoutX="226.0" layoutY="188.0" />
                 <Label layoutX="101.0" layoutY="44.0" prefHeight="54.0" prefWidth="399.0" styleClass="titulo" text="Cuantos jugadores sois?" />
                 <Label layoutX="222.0" layoutY="137.0" prefHeight="17.0" prefWidth="155.0" styleClass="texto" text="Pon el numero de jugadores" />
                 <Button layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#ElegirNombres" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
                 <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#VolverHistoria" prefHeight="42.0" prefWidth="92.0" text="Volver" />
                 <Label layoutX="217.0" layoutY="165.0" styleClass="texto" text="Mínimo 2 Jugadores, Máximo 5" />
+            <Label fx:id="errorMessage" layoutX="166.0" layoutY="239.0" text="Error la cantidad esta mal" textFill="RED" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </children>
