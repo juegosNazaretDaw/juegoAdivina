@@ -47,6 +47,9 @@ public class CantidadJugadoresController {
             //oculta el mensaje d error en caso de si estaba visible
             errorMessage.setVisible(false);
 
+            //dar el primer jugador el numero 1
+            NombreJugadorController.numereoJugadorActual = 0;
+
             Parent root = FXMLLoader.load(getClass().getResource("NombreJugadorView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
