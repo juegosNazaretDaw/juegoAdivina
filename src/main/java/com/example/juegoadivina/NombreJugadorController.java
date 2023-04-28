@@ -18,6 +18,16 @@ public class NombreJugadorController {
     //en jugador X : X empieza desde 1 hasta cantidad (i <= cantidad)
 
 
+    /* add the control : (fields are filled with correct value)
+    * check the username and password with the database
+    *   if the user exists
+    *       check if the password is good
+    *   if the user doesn't exist
+    *       create a jugador from this username and its password
+    *
+    * add encryption to the passwprd
+    *   */
+
     private Stage stage;
     private Scene scene;
 
@@ -68,6 +78,7 @@ public class NombreJugadorController {
     }
 
     public String getNumereoJugadorActual() {
+        //sumar el numero de jugador actual y devolverlo como String
         numereoJugadorActual++;
         return String.valueOf(numereoJugadorActual);
     }
