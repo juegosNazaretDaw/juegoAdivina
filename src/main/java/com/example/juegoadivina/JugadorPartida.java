@@ -7,14 +7,14 @@ public class JugadorPartida extends Jugador{
     public int vidas;
     public boolean vivo;
 
-    JugadorPartida(String nombre, String password) {
+    JugadorPartida(String nombre, String password) throws Exception {
         super(nombre, password);
         id++;
         vidas = 5;
         vivo = true;
     }
 
-    public JugadorPartida(int ranking, String nombre, String password, int partidasJugadas, int partidasGanadas, int puntos) {
+    public JugadorPartida(int ranking, String nombre, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
         super(ranking, nombre, password, partidasJugadas, partidasGanadas, puntos);
         id++;
         vidas = 5;

@@ -12,12 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CantidadJugadoresController {
     private Stage stage;
     private Scene scene;
 
     public static int cantidadJugadores;
+
+    public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
 
     @FXML
     private TextField cantidadJugadoresTF;
