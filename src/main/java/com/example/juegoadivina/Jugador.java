@@ -3,6 +3,9 @@ package com.example.juegoadivina;
 public class Jugador {
     // la contraseña tiene que se guarda encrypted
     // partidas jugada y ganadas mejor seran como clave primaria de otra tabla (partida)
+
+    //add the id. that is in the DB if it is necesary
+    //add email atribute and also to the database
     int ranking;
     String nombre;
     String password;

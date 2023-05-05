@@ -57,7 +57,7 @@ public class NombreJugadorController {
         stage.show();
     }
 
-    public void jugadorSiuiente(ActionEvent event) throws IOException {
+    public void jugadorSiguiente(ActionEvent event) throws IOException {
         //true -> ir a la pagina del siguiente jugador
         //false -> ir a la pagina de juego (RondaView)
         if (CantidadJugadoresController.cantidadJugadores != CantidadJugadoresController.jugadoresPartida.size()) {
@@ -103,7 +103,7 @@ public class NombreJugadorController {
 //            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
 
             //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiuiente(actionEvent);
+            jugadorSiguiente(actionEvent);
 
         } else {
             //error message -- labelError.setText("wrong name or password")
@@ -129,7 +129,7 @@ public class NombreJugadorController {
 //            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
 
             //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiuiente(actionEvent);
+            jugadorSiguiente(actionEvent);
         }
      }
 }
