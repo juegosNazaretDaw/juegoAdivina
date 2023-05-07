@@ -93,7 +93,7 @@ public class NombreJugadorController {
     }
 
     @FXML
-    void jugadorSiuiente(ActionEvent event) throws IOException {
+    void jugadorSiguiente(ActionEvent event) throws IOException {
         //pasar al jugador siguiente o al portada del juego
         //true -> ir a la pagina del siguiente jugador
         //false -> ir a la pagina de juego (RondaView)
@@ -159,7 +159,7 @@ public class NombreJugadorController {
 //            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
 
             //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiuiente(actionEvent);
+            jugadorSiguiente(actionEvent);
 
         } else {
             //error message -- labelError.setText("wrong name or password")
@@ -185,7 +185,7 @@ public class NombreJugadorController {
 //            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
 
             //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiuiente(actionEvent);
+            jugadorSiguiente(actionEvent);
         }
     }
 
