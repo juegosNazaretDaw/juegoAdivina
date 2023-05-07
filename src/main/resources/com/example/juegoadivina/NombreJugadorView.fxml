@@ -12,34 +12,34 @@
             <children>
                 <Label layoutX="214.0" layoutY="45.0" prefHeight="54.0" prefWidth="161.0" styleClass="titulo" text="Jugador" />
                 <Label fx:id="numeroJugador" layoutX="364.0" layoutY="45.0" styleClass="titulo" text="X" />
-                <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#VolverElegirJugadores" prefHeight="42.0" prefWidth="92.0" text="Volver" />
+                <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#VolverInicio" prefHeight="42.0" prefWidth="92.0" text="Volver" />
                 <Button disable="true" layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#jugadorSiuiente" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
-            <Pane layoutX="171.0" layoutY="154.0" prefHeight="86.0" prefWidth="258.0">
+            <Pane fx:id="panelPrincipal" layoutX="171.0" layoutY="154.0" prefHeight="86.0" prefWidth="258.0">
                <children>
-                  <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
-                  <Button layoutX="172.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
+                  <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#toPanelSignIn" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
+                  <Button layoutX="172.0" layoutY="22.0" mnemonicParsing="false" onAction="#toPanelSignUp" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
                </children>
             </Pane>
-            <Pane layoutX="99.0" layoutY="97.0" prefHeight="200.0" prefWidth="434.0" visible="false">
+            <Pane fx:id="panelSignIn" layoutX="99.0" layoutY="97.0" prefHeight="200.0" prefWidth="434.0" visible="false">
                <children>
                   <Label layoutX="85.0" layoutY="30.0" styleClass="texto" text="Nickname" />
                   <Label layoutX="81.0" layoutY="75.0" styleClass="texto" text="Contraseña" />
-                  <TextField layoutX="175.0" layoutY="26.0" />
-                  <TextField layoutX="175.0" layoutY="71.0" />
-                  <Button layoutX="181.0" layoutY="144.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
-                  <Button layoutX="23.0" layoutY="144.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
+                  <TextField fx:id="nombreJugadorTF_PanelSIN" layoutX="175.0" layoutY="26.0" />
+                  <TextField fx:id="passwordJugadorTF_PanelSIN" layoutX="175.0" layoutY="71.0" />
+                  <Button layoutX="306.0" layoutY="144.0" mnemonicParsing="false" onAction="#signInMethod" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
+                  <Button layoutX="163.0" layoutY="144.0" mnemonicParsing="false" onAction="#toPanelSignUp" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
                </children>
             </Pane>
-            <Pane layoutX="117.0" layoutY="114.0" prefHeight="200.0" prefWidth="434.0" visible="false">
+            <Pane fx:id="panelSignUp" layoutX="117.0" layoutY="114.0" prefHeight="200.0" prefWidth="434.0" visible="false">
                <children>
-                  <Label layoutX="63.0" layoutY="56.0" styleClass="texto" text="Nickname" />
-                  <Label layoutX="59.0" layoutY="91.0" styleClass="texto" text="Contraseña" />
-                  <TextField layoutX="153.0" layoutY="52.0" />
-                  <TextField layoutX="153.0" layoutY="87.0" />
-                  <Button layoutX="247.0" layoutY="144.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
-                  <Button layoutX="99.0" layoutY="144.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
-                  <Label layoutX="63.0" layoutY="18.0" styleClass="texto" text="Correo" />
-                  <TextField layoutX="154.0" layoutY="14.0" />
+                  <Label layoutX="62.0" layoutY="56.0" styleClass="texto" text="Nickname" />
+                  <Label layoutX="58.0" layoutY="91.0" styleClass="texto" text="Contraseña" />
+                  <TextField fx:id="nombreJugadorTF_PanelSUP" layoutX="153.0" layoutY="52.0" />
+                  <TextField fx:id="passwordJugadorTF_PanelSUP" layoutX="153.0" layoutY="87.0" />
+                  <Button fx:id="signUpMethod" layoutX="247.0" layoutY="144.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
+                  <Button layoutX="99.0" layoutY="144.0" mnemonicParsing="false" onAction="#toPanelSignIn" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
+                  <Label layoutX="63.0" layoutY="18.0" styleClass="texto" text="Email" />
+                  <TextField fx:id="emailJugadorTF_PanelSUP" layoutX="154.0" layoutY="14.0" />
                </children>
             </Pane>
             </children>

@@ -7,11 +7,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+/*Comments of this class
+ * - make the "volver" method reset all the data (the numeroJugador too)
+ * -
+ * */
 
 public class NombreJugadorController {
     //despues de tener la cantidad, crear una lista de jugadores cada uno con su nombre
@@ -19,51 +24,82 @@ public class NombreJugadorController {
 
 
     /* add the control : (fields are filled with correct value)
-    * check the username and password with the database
-    *   if the user exists
-    *       check if the password is good
-    *   if the user doesn't exist
-    *       create a jugador from this username and its password
-    *
-    * add encryption to the password
-    *   */
+     * check the username and password with the database
+     *   if the user exists
+     *       check if the password is good
+     *   if the user doesn't exist
+     *       create a jugador from this username and its password
+     *
+     * add encryption to the password
+     *   */
 
     private Stage stage;
     private Scene scene;
 
-    public static int numereoJugadorActual; //para mostrarlo en la pantalla (en el label numeroJugador)
+    @FXML
+    private TextField emailJugadorTF_PanelSUP; //El TEXTFIELD del email de jugador en el panel Sign up
 
     @FXML
-    private Label numeroJugador;
-    @FXML
-    private TextField nombreJugadorTF;
+    private TextField nombreJugadorTF_PanelSIN; //El TEXTFIELD de nombre de jugador en el panel Sign in
 
     @FXML
-    private PasswordField passwordJugadorTf;
+    private TextField nombreJugadorTF_PanelSUP; //El TEXTFIELD de nombre de jugador en el panel Sign up
+
+    @FXML
+    private TextField passwordJugadorTF_PanelSIN; //El PASSWORDFIELD del panel Sign in
+
+    @FXML
+    private TextField passwordJugadorTF_PanelSUP; //El PASSWORDFIELD del panel Sign up
+
+    @FXML
+    private Label numeroJugador; //El label del numero de jugador que se cambia para saber que jugador
+    public int numereoJugadorActual = 0; //para mostrarlo en la pantalla (en el label numeroJugador) - se sumara en 1
+
+    @FXML
+    private Pane panelPrincipal; //El panel que contiene dos buttones (singIn y signUp) que cambian el panel (a partir de cambiar la visibilidad del panel)
+
+    @FXML
+    private Pane panelSignIn; //contiene nombreJugadorTF, passwordJugadorTF, signIn button para iniciar la session y signUp button para cambiar la visibilidad del panel
+
+    @FXML
+    private Pane panelSignUp; //contiene emailJugador, nombreJugadorTF, passwordJugadorTF, signUp button para registrar y signIn button para cambiar la visibilidad del panel
+
 
     @FXML
     public void initialize() {
-        //mejor llamar a un metodo aqui que devuelve el numero de jugador
+        //cuando se intializa este clase el numero de jugador se suma en uno y se muestra en su label
         numeroJugador.setText(getNumereoJugadorActual());
-        System.out.println("test 1");
+
+        //siempre ver el panel principal al inicio
+        panelPrincipal.setVisible(true);
+        panelSignIn.setVisible(false);
+        panelSignUp.setVisible(false);
+    }
+
+    public String getNumereoJugadorActual() {
+        //sumar el numero de jugador actual y devolverlo como String
+        numereoJugadorActual++;
+        return String.valueOf(numereoJugadorActual);
     }
 
     @FXML
-    public void VolverElegirJugadores(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CantidadJugadoresView.fxml"));
+    void VolverInicio(ActionEvent event) throws IOException {
+        //volver a la portada de inicio y reset todos los datos
+        Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void jugadorSiuiente(ActionEvent event) throws IOException {
+    @FXML
+    void jugadorSiuiente(ActionEvent event) throws IOException {
+        //pasar al jugador siguiente o al portada del juego
         //true -> ir a la pagina del siguiente jugador
         //false -> ir a la pagina de juego (RondaView)
-        if (CantidadJugadoresController.cantidadJugadores != CantidadJugadoresController.jugadoresPartida.size()) {
-            //reset el textfield y el passwordField
-            nombreJugadorTF.setText("");
-            passwordJugadorTf.setText("");
+        if (CantidadJugadoresController.cantidadJugadores < CantidadJugadoresController.jugadoresPartida.size()) {
+            //reset all the textfields
+            resetTextFields();
 
             //sumar el numero de jugador actual
             numeroJugador.setText(getNumereoJugadorActual());
@@ -76,12 +112,34 @@ public class NombreJugadorController {
             stage.setScene(scene);
             stage.show();
         }
+
     }
 
-    public String getNumereoJugadorActual() {
-        //sumar el numero de jugador actual y devolverlo como String
-        numereoJugadorActual++;
-        return String.valueOf(numereoJugadorActual);
+    @FXML
+    void toPanelSignUp(ActionEvent event) {
+        //cambiar la visibilidad al panel Sing Up
+        panelPrincipal.setVisible(false);
+        panelSignIn.setVisible(false);
+        panelSignUp.setVisible(true);
+        resetTextFields();
+    }
+
+    @FXML
+    void toPanelSignIn(ActionEvent event) {
+        //cambiar la visibilidad al panel Sign In
+        panelSignIn.setVisible(true);
+        panelPrincipal.setVisible(false);
+        panelSignUp.setVisible(false);
+        resetTextFields();
+    }
+
+    void resetTextFields() {
+        //reset all the TextFields to aviod errors
+        emailJugadorTF_PanelSUP.setText("");
+        nombreJugadorTF_PanelSUP.setText("");
+        passwordJugadorTF_PanelSUP.setText("");
+        nombreJugadorTF_PanelSIN.setText("");
+        passwordJugadorTF_PanelSIN.setText("");
     }
 
     @FXML
@@ -89,8 +147,6 @@ public class NombreJugadorController {
         //get the nombreField y passwordField y ver si existe el usuario y la contraseña esta bien hecha sino mostrar el mensaje d error
         //password has to be encrypted before making the query
         //guardar el jugador a la lista de los jugadores de la partida y pasar a la siguiente pagina (que puede ser el proximo jugador o al juego)
-
-        //make a method para cambiar the Scene en vez de hacerelo 2 veces (in signIn y SignUp)
 
         if (true) //chage the true here with : if(isUserPassValid(nombre, pswd))
         {
@@ -131,5 +187,6 @@ public class NombreJugadorController {
             //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
             jugadorSiuiente(actionEvent);
         }
-     }
+    }
+
 }
