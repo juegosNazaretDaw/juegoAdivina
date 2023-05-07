@@ -28,6 +28,20 @@ public class InicioController {
         stage.show();
     }
 
+    public void VerRanking(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("RankingGeneralView.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void VerHistorialPartidas(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("HistorialPartidasView.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 }
