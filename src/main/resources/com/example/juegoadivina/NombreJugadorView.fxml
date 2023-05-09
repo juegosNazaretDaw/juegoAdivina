@@ -13,7 +13,7 @@
                 <Label layoutX="214.0" layoutY="45.0" prefHeight="54.0" prefWidth="161.0" styleClass="titulo" text="Jugador" />
                 <Label fx:id="numeroJugador" layoutX="364.0" layoutY="45.0" styleClass="titulo" text="X" />
                 <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#VolverInicio" prefHeight="42.0" prefWidth="92.0" text="Volver" />
-                <Button disable="true" layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#jugadorSiuiente" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
+                <Button disable="true" layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#jugadorSiguiente" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
             <Pane fx:id="panelPrincipal" layoutX="171.0" layoutY="154.0" prefHeight="86.0" prefWidth="258.0">
                <children>
                   <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#toPanelSignIn" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
