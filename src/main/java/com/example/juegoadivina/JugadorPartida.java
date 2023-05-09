@@ -3,21 +3,25 @@ package com.example.juegoadivina;
 public class JugadorPartida extends Jugador{
     //se puede no ser hija de Jugador
     //tendra un id, vidas y vivo(true o false)
-    public static int id = 0;
+    public int id ;
     public int vidas;
-    public boolean vivo;
 
-    JugadorPartida(String nombre, String password) throws Exception {
-        super(nombre, password);
-        id++;
-        vidas = 5;
-        vivo = true;
+    public JugadorPartida(Jugador jugador) throws Exception {
+        super(jugador.getRanking(), jugador.getNombre(), jugador.getEmail(), jugador.getPassword(), jugador.getPartidasJugadas(), jugador.getPartidasGanadas(), jugador.getPuntos());
+    }
+//    public JugadorPartida(int ranking, String nombre, String email, String password) throws Exception {
+//        super(ranking, nombre, email, password);
+//    }
+
+    public JugadorPartida(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
+        super(ranking, nombre, email, password, partidasJugadas, partidasGanadas, puntos);
     }
 
-    public JugadorPartida(int ranking, String nombre, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
-        super(ranking, nombre, password, partidasJugadas, partidasGanadas, puntos);
-        id++;
-        vidas = 5;
-        vivo = true;
+    public int getVidas() {
+        return vidas;
+    }
+
+    public boolean esVivo() {
+        return vidas > 0;
     }
 }

@@ -149,44 +149,62 @@ public class NombreJugadorController {
         //password has to be encrypted before making the query
         //guardar el jugador a la lista de los jugadores de la partida y pasar a la siguiente pagina (que puede ser el proximo jugador o al juego)
 
-        if (true) //chage the true here with : if(isUserPassValid(nombre, pswd))
-        {
-            // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
+        String nombre = nombreJugadorTF_PanelSIN.getText();
+        String password = PasswordEncrypter.encryptPassword(passwordJugadorTF_PanelSIN.getText()); // get the password that the user writed encrypted
 
-            //crear una funcion que devuelve un objeto del jugador actual a partir del resultado de la query
-//            JugadorPartida jugadorPartida = getJugadorObject(queryResult);
+        //make sure the fields are not empty
+        if ((!nombre.isEmpty()) && (!password.isEmpty())) {
+            if (MongoCon.isUserPassValid(nombre, password) != null) {
+                // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
+                Jugador jugador = MongoCon.isUserPassValid(nombre, password);
+                /*en nombreJugador en vez de crear JugadorPartida a la vez con Jugador -> crear una lista de Jugador primero y despues de tenerla hecha creamos una lista de JugadorPartida a partir de la primera lista*/
 
-            //añadir este jugador a la lista de los jugadores de la partida
-//            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+                //añadir este jugador a la lista de los jugadores
+                CantidadJugadoresController.jugadores.add(jugador);
 
-            //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiguiente(actionEvent);
+                //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
+                jugadorSiguiente(actionEvent);
 
+            } else {
+                //error message -- labelError.setText("wrong name or password")
+                System.out.println("labelError.setText('wrong name or password')");
+            }
         } else {
-            //error message -- labelError.setText("wrong name or password")
-            System.out.println("labelError.setText('wrong name or password')");
+            //error message -- labelError.setText("empty fields")
+            System.out.println("labelError.setText('empty fields')");
         }
-
     }
 
     @FXML
-    public void signUpMethod(ActionEvent actionEvent) throws IOException {
+    public void signUpMethod(ActionEvent actionEvent) throws Exception {
         //get the fields, ver si el nombreJugador no existe , insert el jugador en la base de datos y tambien en la partida
 
-        if (true) //chage the true here with : if(isUserPassValid(nombre, pswd)) -> no user with this name
-        {
-            //crear objeto de este jugador
-//            JugadorPartida jugadorPartida = new JugadorPartida(nombreTF, PasswordTF);
+        String nombre = nombreJugadorTF_PanelSUP.getText();
+        String email = emailJugadorTF_PanelSUP.getText();
+        String password = passwordJugadorTF_PanelSUP.getText();
 
-            //llamar a un metodo para insertar el jugador a la base datos
-            //look for how to get the father object of JugadorPartida which is Jugador
-//            saveToDB(jugador);
+        //make sure the fields are not empty
+        if ((!nombre.isEmpty()) && (!email.isEmpty()) && (!password.isEmpty())) {
+            //make sure there is no user with this nombre or email
+            if (MongoCon.isNombreEmailAvailable(nombre, email)) {
+                //crear objeto de este jugador
+                Jugador jugador = new Jugador(MongoCon.getLatestRank() + 1, nombre, email, PasswordEncrypter.encryptPassword(password)); //darle el ultimo rank+1
 
-            //añadir este jugador a la lista de los jugadores de la partida
-//            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+                //llamar a un metodo para insertar el jugador a la base datos
+                MongoCon.signUp(jugador);
 
-            //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiguiente(actionEvent);
+                //añadir este jugador a la lista de los jugadores
+                CantidadJugadoresController.jugadores.add(jugador);
+
+                //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
+                jugadorSiguiente(actionEvent);
+            } else {
+                //error message -- labelError.setText("usuario existe")
+                System.out.println("labelError.setText('usuario existe')");
+            }
+        } else {
+            //error message -- labelError.setText("empty fields")
+            System.out.println("labelError.setText('empty fields')");
         }
     }
 
