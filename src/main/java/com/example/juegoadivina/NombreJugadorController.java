@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -46,10 +47,10 @@ public class NombreJugadorController {
     private TextField nombreJugadorTF_PanelSUP; //El TEXTFIELD de nombre de jugador en el panel Sign up
 
     @FXML
-    private TextField passwordJugadorTF_PanelSIN; //El PASSWORDFIELD del panel Sign in
+    private PasswordField passwordJugadorTF_PanelSIN; //El PASSWORDFIELD del panel Sign in
 
     @FXML
-    private TextField passwordJugadorTF_PanelSUP; //El PASSWORDFIELD del panel Sign up
+    private PasswordField passwordJugadorTF_PanelSUP; //El PASSWORDFIELD del panel Sign up
 
     @FXML
     private Label numeroJugador; //El label del numero de jugador que se cambia para saber que jugador
