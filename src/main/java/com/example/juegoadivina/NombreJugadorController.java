@@ -86,6 +86,11 @@ public class NombreJugadorController {
     @FXML
     void VolverInicio(ActionEvent event) throws IOException {
         //volver a la portada de inicio y reset todos los datos
+
+        //reset the value of the arralist of Jugadores and JugadoresPartida
+        CantidadJugadoresController.jugadores = null;
+        CantidadJugadoresController.jugadoresPartida = null;
+
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -94,7 +99,7 @@ public class NombreJugadorController {
     }
 
     @FXML
-    void jugadorSiguiente(ActionEvent event) throws IOException {
+    void jugadorSiguiente(ActionEvent event) throws Exception {
         //pasar al jugador siguiente o al portada del juego
         //true -> ir a la pagina del siguiente jugador
         //false -> ir a la pagina de juego (RondaView)
@@ -107,6 +112,8 @@ public class NombreJugadorController {
 
         } else {
             //cuando estamos en la pagina del ultimo jugador -> pasar al juego
+            fillJugadoresPartida();
+            //Crear la lista de JugadoresPartida
             Parent root = FXMLLoader.load(getClass().getResource("RondaView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -144,7 +151,7 @@ public class NombreJugadorController {
     }
 
     @FXML
-    public void signInMethod(ActionEvent actionEvent) throws IOException {
+    public void signInMethod(ActionEvent actionEvent) throws Exception {
         //get the nombreField y passwordField y ver si existe el usuario y la contraseña esta bien hecha sino mostrar el mensaje d error
         //password has to be encrypted before making the query
         //guardar el jugador a la lista de los jugadores de la partida y pasar a la siguiente pagina (que puede ser el proximo jugador o al juego)
@@ -208,4 +215,13 @@ public class NombreJugadorController {
         }
     }
 
+    void fillJugadoresPartida() throws Exception {
+        //method to fill the JugadoresPartida a partir de la lista Jugadores
+        //it is called just before passing to the game (rondaView)
+        for (int i = 0; i < CantidadJugadoresController.jugadores.size(); i++) {
+            //crear JugadorPartida a partir de el objeto Jugador
+            JugadorPartida jugadorPartida = new JugadorPartida(CantidadJugadoresController.jugadores.get(i));
+            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+        }
+    }
 }

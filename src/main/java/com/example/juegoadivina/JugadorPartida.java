@@ -3,11 +3,12 @@ package com.example.juegoadivina;
 public class JugadorPartida extends Jugador{
     //se puede no ser hija de Jugador
     //tendra un id, vidas y vivo(true o false)
-    public int id ;
+//    public int id;
     public int vidas;
 
     public JugadorPartida(Jugador jugador) throws Exception {
         super(jugador.getRanking(), jugador.getNombre(), jugador.getEmail(), jugador.getPassword(), jugador.getPartidasJugadas(), jugador.getPartidasGanadas(), jugador.getPuntos());
+        this.vidas = 5;
     }
 //    public JugadorPartida(int ranking, String nombre, String email, String password) throws Exception {
 //        super(ranking, nombre, email, password);
@@ -15,6 +16,7 @@ public class JugadorPartida extends Jugador{
 
     public JugadorPartida(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
         super(ranking, nombre, email, password, partidasJugadas, partidasGanadas, puntos);
+        vidas = 5;
     }
 
     public int getVidas() {
