@@ -7,12 +7,17 @@
     <list default="true" id="a1fdd672-3d9e-42c3-a12a-cdefc5b3dd5a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/SMTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/SMTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/NombreJugadorView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/NombreJugadorView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,25 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sakis/Desktop/reto3/juegoAdivina&quot;
-
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/sakis/Desktop/reto3/juegoAdivina",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.juegoadivina" />
     </key>
   </component>
   <component name="RunManager">
-<<<<<<< HEAD
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.juegoadivina.HelloApplication" />
-      <module name="juegoAdivina" />
-=======
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.juegoadivina.HelloApplication" />
       <module name="juegoAdivina" />
@@ -70,19 +72,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
->>>>>>> 74be9c817f1963b57f4edd72f800b548439a46ca
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-=======
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
->>>>>>> 74be9c817f1963b57f4edd72f800b548439a46ca
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
