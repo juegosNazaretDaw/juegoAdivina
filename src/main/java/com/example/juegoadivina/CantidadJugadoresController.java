@@ -20,6 +20,7 @@ public class CantidadJugadoresController {
 
     public static int cantidadJugadores;
 
+    public static ArrayList<Jugador> jugadores = new ArrayList<>(); //donde se guardan los jugadores
     public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
 
     @FXML
