@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9faf1450-f86d-4764-bbf0-4a323a7dee98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/JugadorPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/JugadorPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RondaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RondaView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +83,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a1fdd672-3d9e-42c3-a12a-cdefc5b3dd5a" name="Changes" comment="" />
+      <changelist id="9faf1450-f86d-4764-bbf0-4a323a7dee98" name="Changes" comment="" />
       <created>1682335997921</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
