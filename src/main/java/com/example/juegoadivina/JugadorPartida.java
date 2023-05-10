@@ -1,10 +1,13 @@
 package com.example.juegoadivina;
 
+import java.util.ArrayList;
+
 public class JugadorPartida extends Jugador{
     //se puede no ser hija de Jugador
     //tendra un id, vidas y vivo(true o false)
 //    public int id;
     public int vidas;
+    public ArrayList<Integer> numerosElejidos = new ArrayList<>();
 
     public JugadorPartida(Jugador jugador) throws Exception {
         super(jugador.getRanking(), jugador.getNombre(), jugador.getEmail(), jugador.getPassword(), jugador.getPartidasJugadas(), jugador.getPartidasGanadas(), jugador.getPuntos());
@@ -26,4 +29,6 @@ public class JugadorPartida extends Jugador{
     public boolean esVivo() {
         return vidas > 0;
     }
+
+
 }
