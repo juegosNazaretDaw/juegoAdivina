@@ -8,17 +8,20 @@ public class Jugador {
     //add email atribute and also to the database
     int ranking;
     String nombre;
+    String email;
     String password;
     // contraseña no seria necesaria
     int partidasJugadas;
     int partidasGanadas;
     int puntos;
 
-    Jugador(String nombre, String password) throws Exception {
+    Jugador(int ranking, String nombre, String email, String password) throws Exception {
         //Constructor de 2 parametros (nombre y password) para registrarse
 
         // ranking tenemos q darle el mayor (max from sql and add +1 to it)
+        this.ranking = ranking;
         this.nombre = nombre;
+        this.email = email;
         setPassword(password);
         // iniciar estos datos con 0
         this.partidasJugadas = 0;
@@ -26,10 +29,11 @@ public class Jugador {
         this.puntos = 0;
     }
 
-    public Jugador(int ranking, String nombre, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
+    public Jugador(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
         //constructor para iniciar session - todos los datos se cogen desde el resultado del query
         this.ranking = ranking;
         this.nombre = nombre;
+        this.email = email;
         setPassword(password);
         this.partidasJugadas = partidasJugadas;
         this.partidasGanadas = partidasGanadas;
@@ -46,5 +50,51 @@ public class Jugador {
         this.password = PasswordEncrypter.encryptPassword(password);
     }
 
+    public int getRanking() {
+        return ranking;
+    }
 
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getPartidasJugadas() {
+        return partidasJugadas;
+    }
+
+    public void setPartidasJugadas(int partidasJugadas) {
+        this.partidasJugadas = partidasJugadas;
+    }
+
+    public int getPartidasGanadas() {
+        return partidasGanadas;
+    }
+
+    public void setPartidasGanadas(int partidasGanadas) {
+        this.partidasGanadas = partidasGanadas;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
 }

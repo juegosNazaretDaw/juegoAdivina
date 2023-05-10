@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -46,10 +47,10 @@ public class NombreJugadorController {
     private TextField nombreJugadorTF_PanelSUP; //El TEXTFIELD de nombre de jugador en el panel Sign up
 
     @FXML
-    private TextField passwordJugadorTF_PanelSIN; //El PASSWORDFIELD del panel Sign in
+    private PasswordField passwordJugadorTF_PanelSIN; //El PASSWORDFIELD del panel Sign in
 
     @FXML
-    private TextField passwordJugadorTF_PanelSUP; //El PASSWORDFIELD del panel Sign up
+    private PasswordField passwordJugadorTF_PanelSUP; //El PASSWORDFIELD del panel Sign up
 
     @FXML
     private Label numeroJugador; //El label del numero de jugador que se cambia para saber que jugador
@@ -85,6 +86,11 @@ public class NombreJugadorController {
     @FXML
     void VolverInicio(ActionEvent event) throws IOException {
         //volver a la portada de inicio y reset todos los datos
+
+        //reset the value of the arralist of Jugadores and JugadoresPartida
+        CantidadJugadoresController.jugadores = null;
+        CantidadJugadoresController.jugadoresPartida = null;
+
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -93,7 +99,7 @@ public class NombreJugadorController {
     }
 
     @FXML
-    void jugadorSiguiente(ActionEvent event) throws IOException {
+    void jugadorSiguiente(ActionEvent event) throws Exception {
         //pasar al jugador siguiente o al portada del juego
         //true -> ir a la pagina del siguiente jugador
         //false -> ir a la pagina de juego (RondaView)
@@ -106,6 +112,8 @@ public class NombreJugadorController {
 
         } else {
             //cuando estamos en la pagina del ultimo jugador -> pasar al juego
+            fillJugadoresPartida();
+            //Crear la lista de JugadoresPartida
             Parent root = FXMLLoader.load(getClass().getResource("RondaView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -143,50 +151,77 @@ public class NombreJugadorController {
     }
 
     @FXML
-    public void signInMethod(ActionEvent actionEvent) throws IOException {
+    public void signInMethod(ActionEvent actionEvent) throws Exception {
         //get the nombreField y passwordField y ver si existe el usuario y la contraseña esta bien hecha sino mostrar el mensaje d error
         //password has to be encrypted before making the query
         //guardar el jugador a la lista de los jugadores de la partida y pasar a la siguiente pagina (que puede ser el proximo jugador o al juego)
 
-        if (true) //chage the true here with : if(isUserPassValid(nombre, pswd))
-        {
-            // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
+        String nombre = nombreJugadorTF_PanelSIN.getText();
+        String password = PasswordEncrypter.encryptPassword(passwordJugadorTF_PanelSIN.getText()); // get the password that the user writed encrypted
 
-            //crear una funcion que devuelve un objeto del jugador actual a partir del resultado de la query
-//            JugadorPartida jugadorPartida = getJugadorObject(queryResult);
+        //make sure the fields are not empty
+        if ((!nombre.isEmpty()) && (!password.isEmpty())) {
+            if (MongoCon.isUserPassValid(nombre, password) != null) {
+                // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
+                Jugador jugador = MongoCon.isUserPassValid(nombre, password);
+                /*en nombreJugador en vez de crear JugadorPartida a la vez con Jugador -> crear una lista de Jugador primero y despues de tenerla hecha creamos una lista de JugadorPartida a partir de la primera lista*/
 
-            //añadir este jugador a la lista de los jugadores de la partida
-//            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+                //añadir este jugador a la lista de los jugadores
+                CantidadJugadoresController.jugadores.add(jugador);
 
-            //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiguiente(actionEvent);
+                //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
+                jugadorSiguiente(actionEvent);
 
+            } else {
+                //error message -- labelError.setText("wrong name or password")
+                System.out.println("labelError.setText('wrong name or password')");
+            }
         } else {
-            //error message -- labelError.setText("wrong name or password")
-            System.out.println("labelError.setText('wrong name or password')");
+            //error message -- labelError.setText("empty fields")
+            System.out.println("labelError.setText('empty fields')");
         }
-
     }
 
     @FXML
-    public void signUpMethod(ActionEvent actionEvent) throws IOException {
+    public void signUpMethod(ActionEvent actionEvent) throws Exception {
         //get the fields, ver si el nombreJugador no existe , insert el jugador en la base de datos y tambien en la partida
 
-        if (true) //chage the true here with : if(isUserPassValid(nombre, pswd)) -> no user with this name
-        {
-            //crear objeto de este jugador
-//            JugadorPartida jugadorPartida = new JugadorPartida(nombreTF, PasswordTF);
+        String nombre = nombreJugadorTF_PanelSUP.getText();
+        String email = emailJugadorTF_PanelSUP.getText();
+        String password = passwordJugadorTF_PanelSUP.getText();
 
-            //llamar a un metodo para insertar el jugador a la base datos
-            //look for how to get the father object of JugadorPartida which is Jugador
-//            saveToDB(jugador);
+        //make sure the fields are not empty
+        if ((!nombre.isEmpty()) && (!email.isEmpty()) && (!password.isEmpty())) {
+            //make sure there is no user with this nombre or email
+            if (MongoCon.isNombreEmailAvailable(nombre, email)) {
+                //crear objeto de este jugador
+                Jugador jugador = new Jugador(MongoCon.getLatestRank() + 1, nombre, email, PasswordEncrypter.encryptPassword(password)); //darle el ultimo rank+1
 
-            //añadir este jugador a la lista de los jugadores de la partida
-//            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+                //llamar a un metodo para insertar el jugador a la base datos
+                MongoCon.signUp(jugador);
 
-            //pasar a la otra pagina : mejotr que se hace a partir de llamar a un metodo que lo hace
-            jugadorSiguiente(actionEvent);
+                //añadir este jugador a la lista de los jugadores
+                CantidadJugadoresController.jugadores.add(jugador);
+
+                //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
+                jugadorSiguiente(actionEvent);
+            } else {
+                //error message -- labelError.setText("usuario existe")
+                System.out.println("labelError.setText('usuario existe')");
+            }
+        } else {
+            //error message -- labelError.setText("empty fields")
+            System.out.println("labelError.setText('empty fields')");
         }
     }
 
+    void fillJugadoresPartida() throws Exception {
+        //method to fill the JugadoresPartida a partir de la lista Jugadores
+        //it is called just before passing to the game (rondaView)
+        for (int i = 0; i < CantidadJugadoresController.jugadores.size(); i++) {
+            //crear JugadorPartida a partir de el objeto Jugador
+            JugadorPartida jugadorPartida = new JugadorPartida(CantidadJugadoresController.jugadores.get(i));
+            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+        }
+    }
 }
