@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9faf1450-f86d-4764-bbf0-4a323a7dee98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/JugadorPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/JugadorPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaResultadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaResultadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RondaResultadoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RondaResultadoView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RankingPartidaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/juegoadivina/RankingPartidaView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
