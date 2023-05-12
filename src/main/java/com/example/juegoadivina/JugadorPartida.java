@@ -7,7 +7,8 @@ public class JugadorPartida extends Jugador{
     //tendra un id, vidas y vivo(true o false)
 //    public int id;
     public int vidas;
-    public ArrayList<Integer> numerosElejidos = new ArrayList<>();
+    public boolean masCercano = false;
+    public ArrayList<Integer> numerosElegidos = new ArrayList<>();
 
     public JugadorPartida(Jugador jugador) throws Exception {
         super(jugador.getRanking(), jugador.getNombre(), jugador.getEmail(), jugador.getPassword(), jugador.getPartidasJugadas(), jugador.getPartidasGanadas(), jugador.getPuntos());
@@ -28,6 +29,23 @@ public class JugadorPartida extends Jugador{
 
     public boolean esVivo() {
         return vidas > 0;
+    }
+
+    public ArrayList<Integer> getNumerosElegidos() {
+        return numerosElegidos;
+    }
+
+    public int getNumeroElegido() {
+        //get el ultimo numero Elegido
+        return numerosElegidos.get(numerosElegidos.size()-1);
+    }
+
+    public void quitarVida() {
+        if (vidas > 0) this.vidas--;
+    }
+
+    public int cantidadRondas() {
+        return this.numerosElegidos.size();
     }
 
 

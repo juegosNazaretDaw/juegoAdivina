@@ -19,6 +19,7 @@ public class CantidadJugadoresController {
     private Scene scene;
 
     public static int cantidadJugadores;
+    public static int idRonda = -1;
 
     public static ArrayList<Jugador> jugadores = new ArrayList<>(); //donde se guardan los jugadores
     public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
