@@ -30,5 +30,13 @@ public class JugadorPartida extends Jugador{
         return vidas > 0;
     }
 
+    public ArrayList<Integer> getNumerosElejidos() {
+        return numerosElejidos;
+    }
+
+    public int getNumeroElejedo(int i) {
+        return numerosElejidos.get(i);
+    }
+
 
 }
