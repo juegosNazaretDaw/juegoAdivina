@@ -11,7 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static com.example.juegoadivina.CantidadJugadoresController.idRonda;
 import static com.example.juegoadivina.CantidadJugadoresController.jugadoresPartida;
@@ -28,21 +27,26 @@ public class RondaController {
     @FXML
     private PasswordField numeroElejido;
 
-    ArrayList<Integer> numerosElejidosRonda; //lista de los numeros elejidos de los jugadores vivos en la ronda
-
     int i;
 
     @FXML
     public void initialize() {
         idRonda++;
-        i = 0;
+        i = -1; //contador para el siguiente jugaodor (si es vivo sino el siguiente)
+        //he puesto esta parte del codigo aqui para evitar errores si el primer Jugador en la lista esta muerto
+        try {
+            do {
+                i++;
+            } while (!jugadoresPartida.get(i).esVivo());
+        } catch (ArrayIndexOutOfBoundsException e) { //add the control para evitar este error
+        }
         changeLabelNombre();
     }
 
     @FXML
     void jugadorSiguiente(ActionEvent event) {
         //pasar a la pagina de resultadoRonda if (!(i < jugadoresPartida.size()))
-        metodo(event);
+        metodoPrinciapl(event);
 
 
     }
@@ -52,20 +56,25 @@ public class RondaController {
         nombreJugador.setText(jugadoresPartida.get(i).getNombre());
     }
 
-    void metodo(ActionEvent event) {
+    void metodoPrinciapl(ActionEvent event) {
+        //este metodo guarda el numeroAdivinado despues de controlarlo y controla a que portada pasar (jugadorSiguiente o rondaResultado)
+
         //make sure the number is valid
         if (Integer.parseInt(numeroElejido.getText()) < 1 || Integer.parseInt(numeroElejido.getText()) > 100 || numeroElejido.getText().isEmpty()) {
 
-            //guardad el numero elejido en el arraylist 'numerosElejidos' del jugador actual
-            jugadoresPartida.get(i).numerosElejidos.add(Integer.valueOf(numeroElejido.getText()));
+            //guardar el numero elejido en el arraylist 'numerosElejidos' del jugador actual
+            jugadoresPartida.get(i).numerosElegidos.add(Integer.valueOf(numeroElejido.getText()));
 
             //contador para el siguiente jugaodor (si es vivo sino el siguiente)
-            do {
-                i++;
-            } while (!jugadoresPartida.get(i).esVivo());
+            try {
+                do {
+                    i++;
+                } while (!jugadoresPartida.get(i).esVivo());
+            } catch (ArrayIndexOutOfBoundsException e) { //add the control para evitar este error
+            }
 
             //ver cual seria la pagina siguiente jugadorSiguiente o rondaResultado
-            if (i < jugadoresPartida.size()) { //para pasar al siguiente jugador
+            if (i < cantidadVivosRonda()) { //para pasar al siguiente jugador
                 //cambiar el nombre label
                 changeLabelNombre();
 
@@ -87,53 +96,82 @@ public class RondaController {
 
     public void toResultadoRonda(ActionEvent event) throws IOException {
         //antes de pasar - ver quien ha ganado
+        setGanadorRonda();
+        //quitar vida de los demas (solo los vivos)
+        changeVidas();
 
-
+        //pasar al portada rondaResultado
         Parent root = FXMLLoader.load(getClass().getResource("RondaResultadoView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        //en resultado ronda, ver si hay mas de un vivo -> ronda mas, sino al resultado del partida
     }
 
     public double calcularResto() {
       //calcular el numero para saber quien es el mas cercano a este numero
 
-        //gandor es el mas cercano al resultado --> se puede hacer a partir de Math.min(dif1, dif2, dif3 ..)
-        //       dif se calcula con result menos el numeroAdivinado -- mejor hacer el valor absoluto
-        numerosElejidosRonda = new ArrayList<>();
+        //calcular la suma de los numeros adivinados
         int suma = 0; // la suma de los numeros adivinados
         for (int j = 0; j < jugadoresPartida.size(); j++) { //bouclear a todos los jugadores de la partida
             if (jugadoresPartida.get(i).esVivo()) { //ver solamete quien es vivo
-                numerosElejidosRonda.add(jugadoresPartida.get(i).getNumeroElejedo(idRonda)); //guardar el numero elejido de esta ronda
-                suma += jugadoresPartida.get(i).getNumeroElejedo(idRonda);
+                suma += jugadoresPartida.get(j).getNumeroElegido();
             }
         }
-        double restoRonda = suma / numerosElejidosRonda.size() * 0.8;
+        //calcular el resto
+        double restoRonda = suma / cantidadVivosRonda() * 0.8;
         return restoRonda;
     }
 
-    public ArrayList<Double> getDiferencias() {
-        //devolver un arrayList<Double> de las diferencias entre los numeros adivinados de la ronda con el restoRonda
-        ArrayList<Double> diferencias = new ArrayList<>();
-
-        for (int j = 0; j < numerosElejidosRonda.size(); j++) {
-            double dif = calcularResto() - numerosElejidosRonda.get(j);
-            diferencias.add(Math.abs(dif));
+    void setGanadorRonda() {
+        //cambiar el atributo masCercano a true del jugador quien esta mas cercano
+        double min = 100;
+        int posMin = 100; //posicion del jugador mas cercano
+        for (int j = 0; j < jugadoresPartida.size(); j++) {
+            if (jugadoresPartida.get(j).esVivo()) { //solamento los vivos
+                double dif = calcularResto() - jugadoresPartida.get(j).getNumeroElegido(); //get la difernecia
+                if (Math.abs(dif) < min) { //ver si esta diferencia es la la minima
+                    //si la diferencia es menor que min -> es la minima ahora
+                    min = Math.abs(dif);
+                    posMin = j; // guardar la posicion de este jugador para camabiarle el attrinuto masCercano despues de salir del boucle
+                }
+            }
         }
-        return diferencias;
+        //cambiar el atributo masCercano a true para el jugador con la diferencia minima
+        jugadoresPartida.get(posMin).masCercano = true;
     }
 
     public void changeVidas() {
+        //este metodo cambia las vidas despues de cada partida
+        //se cambia a todos quienes son vivos excepto el masCercano (quien tiene el attributo masCercano  = true)
+
+        for (int j = 0; j < jugadoresPartida.size(); j++) {
+            if (jugadoresPartida.get(j).esVivo()) {
+                if (!jugadoresPartida.get(j).masCercano) {
+                    jugadoresPartida.get(j).quitarVida();
+                }
+            }
+        }
+        // despues de quitar las vidas -> reset the masCercano attribute para todos los jugadores
+        resetMasCercano();
 
     }
 
+    public void resetMasCercano() {
+        //reset MasCercano attribute para todos los jugadores  a partir  de asignar masCercano = false
+        for (int j = 0; j < jugadoresPartida.size(); j++) {
+            jugadoresPartida.get(j).masCercano = false;
+        }
+    }
 
-
+    public static int cantidadVivosRonda() {
+        int cantidadVivos = 0; //la cantidad de los jugadores vivos en la ronda
+        for (int j = 0; j < jugadoresPartida.size(); j++) {
+            cantidadVivos++;
+        }
+        return cantidadVivos;
+    }
 
 }
-
-//the first thing is the control of the input
-//guardar el numero elejido del jugador
-//ver si pasar a la jugador siguiente o al resultado -> if (!(i < jugadoresPartida.size()))
 

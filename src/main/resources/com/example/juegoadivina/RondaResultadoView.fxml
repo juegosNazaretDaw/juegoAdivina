@@ -12,17 +12,17 @@
       <Pane layoutX="240.0" layoutY="75.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="138.0" layoutY="47.0" styleClass="titulo" text="Resultado Ronda " />
-            <Label layoutX="441.0" layoutY="47.0" styleClass="titulo" text="X" />
-            <TableView layoutX="38.0" layoutY="114.0" prefHeight="205.0" prefWidth="250.0">
+            <Label fx:id="idRondaLabel" layoutX="441.0" layoutY="47.0" styleClass="titulo" text="X" />
+            <TableView fx:id="tableView" layoutX="38.0" layoutY="114.0" prefHeight="205.0" prefWidth="250.0">
                 <columns>
-                    <TableColumn prefWidth="75.0" text="Jugador" fx:id="jugadorColumn" />
-                    <TableColumn prefWidth="75.0" text="Vidas" fx:id="vidasColumn" />
-                    <TableColumn prefWidth="98.4000244140625" text="NumeroElejido" fx:id="numeroElejidoColumn" />
+                    <TableColumn fx:id="jugadorColumn" prefWidth="75.0" text="Jugador" />
+                    <TableColumn fx:id="vidasColumn" prefWidth="75.0" text="Vidas" />
+                    <TableColumn fx:id="numeroElegidoColumn" prefWidth="98.4000244140625" text="NumeroElejido" />
                 </columns>
             </TableView>
             <Label layoutX="381.0" layoutY="177.0" styleClass="texto" text="Resultado numero" />
-            <Label layoutX="426.0" layoutY="208.0" styleClass="texto" text="X" />
-            <Button layoutX="482.0" layoutY="339.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="76.0" text="Siguiente" />
+            <Label fx:id="resultadoLabel" layoutX="426.0" layoutY="208.0" styleClass="texto" text="X" />
+            <Button layoutX="482.0" layoutY="339.0" mnemonicParsing="false" onAction="#siguientePortada" prefHeight="39.0" prefWidth="76.0" text="Siguiente" />
          </children>
       </Pane>
    </children>
