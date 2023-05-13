@@ -3,9 +3,7 @@ package com.example.juegoadivina;
 import java.util.ArrayList;
 
 public class JugadorPartida extends Jugador{
-    //se puede no ser hija de Jugador
-    //tendra un id, vidas y vivo(true o false)
-//    public int id;
+    //add an attribute calledthe ranking Partida or Posicion para mostrarla en el resultadoPartida, que se actualiza a partir de cantidad de rondas que ha jugado el jugador -> mas rondas , good ranking
     public int vidas;
     public boolean masCercano = false;
     public ArrayList<Integer> numerosElegidos = new ArrayList<>();

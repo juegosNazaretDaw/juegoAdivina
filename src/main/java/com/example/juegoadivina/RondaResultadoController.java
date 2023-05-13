@@ -1,5 +1,6 @@
 package com.example.juegoadivina;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +15,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import static com.example.juegoadivina.CantidadJugadoresController.idRonda;
 import static com.example.juegoadivina.CantidadJugadoresController.jugadoresPartida;
 import static com.example.juegoadivina.RondaController.cantidadVivosRonda;
+import static com.example.juegoadivina.RondaController.resultadoRonda;
 
 public class RondaResultadoController {
 
@@ -49,6 +50,12 @@ public class RondaResultadoController {
     ObservableList<JugadorPartida> jugadoresRondaObservable = FXCollections.observableArrayList(getJugadoresRondaArray());
 
     public void initialize() {
+        //set up the idRondaLabel
+        idRondaLabel.setText(String.valueOf(idRonda));
+
+        //set the result number label
+        resultadoLabel.setText(String.valueOf(resultadoRonda));
+
         // Set up the cell value factory for jugadorColumn using a Callback
         jugadorColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<JugadorPartida, String>, ObservableValue<String>>() {
             @Override

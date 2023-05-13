@@ -97,4 +97,16 @@ public class Jugador {
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
+
+    public void addPartidaJugada() {
+        this.partidasJugadas++;
+    }
+
+    public void addPartidaGanadas() {
+        this.partidasGanadas++;
+    }
+
+    public void addPuntos(int puntos) {
+        this.puntos += puntos;
+    }
 }

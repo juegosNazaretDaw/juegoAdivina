@@ -30,18 +30,29 @@ public class CantidadJugadoresController {
     @FXML
     private Label errorMessage;
 
+
     @FXML
-    public void VolverHistoria(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("HistoriaView.fxml"));
+    public void initialize() {
+        //reset the static data
+        idRonda = -1;
+        jugadores = new ArrayList<>();
+        jugadoresPartida = new ArrayList<>();
+    }
+
+
+    @FXML
+    public void Volver(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    //pasar al la pagina de nombres de cada jugador
+
     @FXML
     public void ElegirNombres(ActionEvent event) throws IOException {
+        //pasar al la pagina de nombres de cada jugador
 
         //si la cantidad es valida pasar al siguiente pagina sino mostrar el mensaje derror (set it visible)
         if (validarCantidad(cantidadJugadoresTF.getText())) {

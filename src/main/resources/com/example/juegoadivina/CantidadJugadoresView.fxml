@@ -15,7 +15,7 @@
                 <Label layoutX="101.0" layoutY="44.0" prefHeight="54.0" prefWidth="399.0" styleClass="titulo" text="Cuantos jugadores sois?" />
                 <Label layoutX="222.0" layoutY="137.0" prefHeight="17.0" prefWidth="155.0" styleClass="texto" text="Pon el numero de jugadores" />
                 <Button layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#ElegirNombres" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
-                <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#VolverHistoria" prefHeight="42.0" prefWidth="92.0" text="Volver" />
+                <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#Volver" prefHeight="42.0" prefWidth="92.0" text="Volver" />
                 <Label layoutX="217.0" layoutY="165.0" styleClass="texto" text="Mínimo 2 Jugadores, Máximo 5" />
             <Label fx:id="errorMessage" layoutX="166.0" layoutY="239.0" text="Error la cantidad esta mal" textFill="RED" visible="false">
                <font>

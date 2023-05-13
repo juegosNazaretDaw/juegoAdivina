@@ -14,10 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/*Comments of this class
- * - make the "volver" method reset all the data (the numeroJugador too)
- * -
- * */
 
 public class NombreJugadorController {
     //despues de tener la cantidad, crear una lista de jugadores cada uno con su nombre
@@ -27,11 +23,10 @@ public class NombreJugadorController {
     /* add the control : (fields are filled with correct value)
      * check the username and password with the database
      *   if the user exists
-     *       check if the password is good
+     *       check if the password is good (password is encrypted)
      *   if the user doesn't exist
      *       create a jugador from this username and its password
      *
-     * add encryption to the password
      *   */
 
     private Stage stage;
@@ -54,6 +49,7 @@ public class NombreJugadorController {
 
     @FXML
     private Label numeroJugador; //El label del numero de jugador que se cambia para saber que jugador
+
     public int numereoJugadorActual = 0; //para mostrarlo en la pantalla (en el label numeroJugador) - se sumara en 1
 
     @FXML
@@ -215,7 +211,7 @@ public class NombreJugadorController {
         }
     }
 
-    void fillJugadoresPartida() throws Exception {
+    static void fillJugadoresPartida() throws Exception {
         //method to fill the JugadoresPartida a partir de la lista Jugadores
         //it is called just before passing to the game (rondaView)
         for (int i = 0; i < CantidadJugadoresController.jugadores.size(); i++) {
