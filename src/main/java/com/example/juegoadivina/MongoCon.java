@@ -4,7 +4,11 @@ import com.mongodb.MongoException;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Sorts;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MongoCon {
@@ -124,6 +128,47 @@ public class MongoCon {
         } catch (MongoException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static boolean updateJugador(Jugador jugador) {
+        //update a specified jugador attributes
+        Document filter = new Document("nombre", jugador.getNombre());
+        Document update = new Document("$set", new Document()
+                .append("ranking", jugador.getRanking())
+                .append("contrasena", jugador.getPassword())
+                .append("email", jugador.getEmail())
+                .append("puntos", jugador.getPuntos())
+                .append("partidasJugadas", jugador.getPartidasJugadas())
+                .append("partidasGanadas", jugador.getPartidasGanadas()));
+
+        try {
+            UpdateResult result = jugadorCollection.updateOne(filter, update);
+            return result.getModifiedCount() > 0;
+        } catch (MongoException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void updateRanking() {
+        //para Cambiar el ranking segun la cantidad de puntos
+
+        // Sort the players by puntos in descending order
+        List<Document> sortedPlayers = jugadorCollection.find()
+                .sort(Sorts.descending("puntos"))
+                .projection(Projections.include("nombre"))
+                .into(new ArrayList<>());
+
+        // Update the ranking for each player based on their position in the sorted list
+        int rank = 1;
+        for (Document player : sortedPlayers) {
+            String nombre = player.getString("nombre");
+            Document filter = new Document("nombre", nombre);
+            Document update = new Document("$set", new Document("ranking", rank));
+
+            jugadorCollection.updateOne(filter, update);
+            rank++;
         }
     }
 

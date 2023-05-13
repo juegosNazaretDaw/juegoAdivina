@@ -28,6 +28,7 @@ public class RondaController {
     private PasswordField numeroElejido;
 
     int i;
+    public static double resultadoRonda;
 
     @FXML
     public void initialize() {
@@ -109,7 +110,7 @@ public class RondaController {
         //en resultado ronda, ver si hay mas de un vivo -> ronda mas, sino al resultado del partida
     }
 
-    public double calcularResto() {
+    public double calcularResultado() {
       //calcular el numero para saber quien es el mas cercano a este numero
 
         //calcular la suma de los numeros adivinados
@@ -120,8 +121,8 @@ public class RondaController {
             }
         }
         //calcular el resto
-        double restoRonda = suma / cantidadVivosRonda() * 0.8;
-        return restoRonda;
+        double resultadoRonda = suma / cantidadVivosRonda() * 0.8;
+        return resultadoRonda;
     }
 
     void setGanadorRonda() {
@@ -130,7 +131,7 @@ public class RondaController {
         int posMin = 100; //posicion del jugador mas cercano
         for (int j = 0; j < jugadoresPartida.size(); j++) {
             if (jugadoresPartida.get(j).esVivo()) { //solamento los vivos
-                double dif = calcularResto() - jugadoresPartida.get(j).getNumeroElegido(); //get la difernecia
+                double dif = calcularResultado() - jugadoresPartida.get(j).getNumeroElegido(); //get la difernecia
                 if (Math.abs(dif) < min) { //ver si esta diferencia es la la minima
                     //si la diferencia es menor que min -> es la minima ahora
                     min = Math.abs(dif);
@@ -140,6 +141,9 @@ public class RondaController {
         }
         //cambiar el atributo masCercano a true para el jugador con la diferencia minima
         jugadoresPartida.get(posMin).masCercano = true;
+
+        //save the numero resultado ronda para la portada del resultado (para cambbiar el label)
+        resultadoRonda = calcularResultado();
     }
 
     public void changeVidas() {
