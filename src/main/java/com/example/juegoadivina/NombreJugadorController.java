@@ -31,6 +31,7 @@ public class NombreJugadorController {
 
     private Stage stage;
     private Scene scene;
+    MongoCon mongoCon;
 
     @FXML
     private TextField emailJugadorTF_PanelSUP; //El TEXTFIELD del email de jugador en el panel Sign up
@@ -71,6 +72,9 @@ public class NombreJugadorController {
         panelPrincipal.setVisible(true);
         panelSignIn.setVisible(false);
         panelSignUp.setVisible(false);
+
+        mongoCon = new MongoCon();
+
     }
 
     public String getNumereoJugadorActual() {
@@ -109,6 +113,10 @@ public class NombreJugadorController {
         } else {
             //cuando estamos en la pagina del ultimo jugador -> pasar al juego
             fillJugadoresPartida();
+
+            //close la conexion
+            mongoCon.close();
+
             //Crear la lista de JugadoresPartida
             Parent root = FXMLLoader.load(getClass().getResource("RondaView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -157,9 +165,9 @@ public class NombreJugadorController {
 
         //make sure the fields are not empty
         if ((!nombre.isEmpty()) && (!password.isEmpty())) {
-            if (MongoCon.isUserPassValid(nombre, password) != null) {
+            if (mongoCon.isUserPassValid(nombre, password) != null) {
                 // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
-                Jugador jugador = MongoCon.isUserPassValid(nombre, password);
+                Jugador jugador = mongoCon.isUserPassValid(nombre, password);
                 /*en nombreJugador en vez de crear JugadorPartida a la vez con Jugador -> crear una lista de Jugador primero y despues de tenerla hecha creamos una lista de JugadorPartida a partir de la primera lista*/
 
                 //añadir este jugador a la lista de los jugadores
@@ -189,9 +197,9 @@ public class NombreJugadorController {
         //make sure the fields are not empty
         if ((!nombre.isEmpty()) && (!email.isEmpty()) && (!password.isEmpty())) {
             //make sure there is no user with this nombre or email
-            if (MongoCon.isNombreEmailAvailable(nombre, email)) {
+            if (mongoCon.isNombreEmailAvailable(nombre, email)) {
                 //crear objeto de este jugador
-                Jugador jugador = new Jugador(MongoCon.getLatestRank() + 1, nombre, email, PasswordEncrypter.encryptPassword(password)); //darle el ultimo rank+1
+                Jugador jugador = new Jugador(mongoCon.getLatestRank() + 1, nombre, email, PasswordEncrypter.encryptPassword(password)); //darle el ultimo rank+1
 
                 //llamar a un metodo para insertar el jugador a la base datos
                 MongoCon.signUp(jugador);

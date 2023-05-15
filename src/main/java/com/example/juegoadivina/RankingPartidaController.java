@@ -25,6 +25,8 @@ public class RankingPartidaController {
     Stage stage;
     Scene scene;
 
+    MongoCon mongoCon;
+
 
     @FXML
     private TableView<JugadorPartida> tableView;
@@ -86,7 +88,7 @@ public class RankingPartidaController {
     @FXML
     void volver(ActionEvent event) throws IOException {
         //reboot the whole application to reset everything
-        InicioApplication.rebootApplication();
+//        InicioApplication.rebootApplication(); //he comentado esto porque me da error
 
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -107,7 +109,7 @@ public class RankingPartidaController {
         //add a method to insert the partida and Rondas values to the DB
 
         //update the ranking according to the puntos of every Jugador
-        MongoCon.updateRanking();
+        mongoCon.updateRanking();
     }
 
     void updateJugadoresArray() {
@@ -132,7 +134,7 @@ public class RankingPartidaController {
     void updateJugadorCollection() {
         //actualizar los campos de cada jugador en la base de datos
         for (int i = 0; i < jugadores.size(); i++) {
-            MongoCon.updateJugador(jugadores.get(i));
+            mongoCon.updateJugador(jugadores.get(i));
         }
     }
 
