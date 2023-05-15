@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -23,6 +24,8 @@ import static com.example.juegoadivina.NombreJugadorController.*;
 
 public class RankingPartidaController {
 
+    @FXML
+    public Label ganadorLabel;
     Stage stage;
     Scene scene;
 
@@ -65,6 +68,8 @@ public class RankingPartidaController {
 
         tableView.setItems(jugadoresPartidaObservable);
 
+        //set the ganador in  the ganadorLabel
+        ganadorLabel.setText(getGanador());
         //actualizar los datos en la base de datos
         insertToDB();
 
@@ -145,6 +150,16 @@ public class RankingPartidaController {
         for (int i = 0; i < jugadores.size(); i++) {
             mongoCon.updateJugador(jugadores.get(i));
         }
+    }
+
+    String getGanador() {
+        //devuelve el nombre del ganador para ponerlo en el Label
+        String ganadorNombre = "";
+        for (int j = 0; j < jugadoresPartida.size() ; j++) {
+            if (jugadoresPartida.get(j).esVivo())
+                ganadorNombre = jugadoresPartida.get(j).getNombre();
+        }
+        return ganadorNombre;
     }
 
 }
