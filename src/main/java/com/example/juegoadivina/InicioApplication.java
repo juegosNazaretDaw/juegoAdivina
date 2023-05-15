@@ -1,7 +1,6 @@
 package com.example.juegoadivina;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,17 +17,17 @@ public class InicioApplication extends Application {
         stage.show();
     }
 
-    public static void rebootApplication() {
-        Platform.runLater(() -> {
-            try {
-                stop(); // Stop the current application
-                start(new Stage()); // Start a new instance of the application
-            } catch (Exception e) {
-                // Handle any exceptions
-                e.printStackTrace();
-            }
-        });
-    }
+//    public void rebootApplication() { //comentar para no tener problemas
+//        Platform.runLater(() -> {
+//            try {
+//                stop(); // Stop the current application
+//                start(new Stage()); // Start a new instance of the application
+//            } catch (Exception e) {
+//                // Handle any exceptions
+//                e.printStackTrace();
+//            }
+//        });
+//    }
 
     public static void main(String[] args) {
         launch();

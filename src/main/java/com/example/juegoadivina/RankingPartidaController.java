@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.juegoadivina.CantidadJugadoresController.*;
+import static com.example.juegoadivina.NombreJugadorController.*;
 
 public class RankingPartidaController {
 
@@ -37,7 +38,7 @@ public class RankingPartidaController {
     @FXML
     private TableColumn<JugadorPartida, Integer> puntosColumn;
 
-    ObservableList<JugadorPartida> jugadoresPartidaObservable = FXCollections.observableArrayList(CantidadJugadoresController.jugadoresPartida);
+    ObservableList<JugadorPartida> jugadoresPartidaObservable = FXCollections.observableArrayList(jugadoresPartida);
 
     @FXML
     public void initialize() {
@@ -80,6 +81,11 @@ public class RankingPartidaController {
         //reset jugadoresPartida
         jugadoresPartida = null;
         jugadoresPartida = new ArrayList<>();
+
+
+        //close la conexion
+        mongoCon.close();
+
         //rellena jugadoresPartida a partir de la lista de jugadores que tenemos
         NombreJugadorController.fillJugadoresPartida();
 
@@ -89,6 +95,9 @@ public class RankingPartidaController {
     void volver(ActionEvent event) throws IOException {
         //reboot the whole application to reset everything
 //        InicioApplication.rebootApplication(); //he comentado esto porque me da error
+
+        //close la conexion
+        mongoCon.close();
 
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

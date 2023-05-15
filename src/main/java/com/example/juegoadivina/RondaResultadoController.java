@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.juegoadivina.CantidadJugadoresController.idRonda;
-import static com.example.juegoadivina.CantidadJugadoresController.jugadoresPartida;
+import static com.example.juegoadivina.NombreJugadorController.jugadoresPartida;
 import static com.example.juegoadivina.RondaController.cantidadVivosRonda;
 import static com.example.juegoadivina.RondaController.resultadoRonda;
 

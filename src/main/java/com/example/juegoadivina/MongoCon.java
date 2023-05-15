@@ -13,8 +13,8 @@ import java.util.List;
 
 public class MongoCon {
 
-    protected static final String CONNECTION_STRING = "mongodb://localhost:27017";
-    protected static final String DATABASE_NAME = "mydb";
+    protected static final String CONNECTION_STRING = "mongodb://root:password@localhost:27017";
+    protected static final String DATABASE_NAME = "laIslaDb";
 
     protected MongoClient mongoClient;
     protected MongoDatabase database;
@@ -38,12 +38,20 @@ public class MongoCon {
      * @return A Jugador object if the username and password are valid, or null if the username or password are incorrect or the user doesn't exist.
      */
     public static Jugador isUserPassValid(String nombre, String password) {
+        //comments to delete
+        System.out.println("MongoCon: isUserPassValid");
+        System.out.println("\tin the database");
+        System.out.println("\tel nombre: " + nombre);
+        System.out.println("\tla contraseña encryptada: " + password);
+
+
         Document query = new Document("nombre", nombre).append("contrasena", password);
         FindIterable<Document> result = jugadorCollection.find(query);
 
         MongoCursor<Document> cursor = result.iterator();
         if (cursor.hasNext()) {
             Document document = cursor.next();
+            System.out.println("userExist");
             try {
                 Jugador jugador = new Jugador(
                         document.getInteger("ranking"),
