@@ -13,6 +13,7 @@ public class InicioApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApplication.class.getResource("InicioView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Escapa de la isla");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

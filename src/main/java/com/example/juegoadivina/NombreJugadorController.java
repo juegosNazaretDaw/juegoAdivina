@@ -36,6 +36,9 @@ public class NombreJugadorController {
     public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
 
     @FXML
+    public Label errorLabel;
+
+    @FXML
     private TextField emailJugadorTF_PanelSUP; //El TEXTFIELD del email de jugador en el panel Sign up
 
     @FXML
@@ -187,10 +190,12 @@ public class NombreJugadorController {
             } else {
                 //error message -- labelError.setText("wrong name or password")
                 System.out.println("labelError.setText('wrong name or password')");
+                errorLabel.setText("wrong name or password");
             }
         } else {
             //error message -- labelError.setText("empty fields")
             System.out.println("labelError.setText('empty fields')");
+            errorLabel.setText("empty fields");
         }
     }
 
@@ -228,10 +233,13 @@ public class NombreJugadorController {
             } else {
                 //error message -- labelError.setText("usuario existe")
                 System.out.println("labelError.setText('usuario existe')");
+                errorLabel.setText("usuario existe");
+
             }
         } else {
             //error message -- labelError.setText("empty fields")
             System.out.println("labelError.setText('empty fields')");
+            errorLabel.setText("empty fields");
         }
     }
 

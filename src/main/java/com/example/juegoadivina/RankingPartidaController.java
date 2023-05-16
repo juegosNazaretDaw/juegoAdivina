@@ -94,6 +94,12 @@ public class RankingPartidaController {
         //rellena jugadoresPartida a partir de la lista de jugadores que tenemos
         NombreJugadorController.fillJugadoresPartida();
 
+        Parent root = FXMLLoader.load(getClass().getResource("RondaView.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
