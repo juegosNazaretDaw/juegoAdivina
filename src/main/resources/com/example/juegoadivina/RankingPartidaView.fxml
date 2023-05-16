@@ -5,9 +5,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RankingPartidaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="pane2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RankingPartidaController">
    <children>
       <TableView fx:id="tableView" layoutX="54.0" layoutY="113.0" prefHeight="200.0" prefWidth="151.0">
         <columns>
@@ -15,16 +16,25 @@
             <TableColumn fx:id="puntosColumn" prefWidth="75.0" text="puntos" />
         </columns>
       </TableView>
-      <Button layoutX="471.0" layoutY="317.0" mnemonicParsing="false" onAction="#replay" prefHeight="40.0" prefWidth="95.0" text="Volver a jugar" />
-      <Button layoutX="374.0" layoutY="317.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="72.0" text="Volver" />
-      <Label layoutX="372.0" layoutY="113.0" styleClass="texto" text="Ganador ">
-         <font>
-            <Font size="28.0" />
-         </font></Label>
-      <Label fx:id="ganadorLabel" layoutX="409.0" layoutY="164.0" style="-fx-text-fill: #00EF81; -fx-background-color: white;">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <Label layoutX="182.0" layoutY="14.0" styleClass="titulo" text="Rankin partida" />
+      <Button layoutX="424.0" layoutY="313.0" mnemonicParsing="false" onAction="#replay" prefHeight="40.0" prefWidth="151.0" text="Volver a jugar" />
+      <Button layoutX="333.0" layoutY="313.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="75.0" text="Volver" />
+      <Pane layoutX="400.0" layoutY="172.0" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
+         <children>
+            <Label fx:id="ganadorLabel" style="-fx-text-fill: #00EF81; -fx-background-color: white;">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Label layoutX="206.0" layoutY="31.0" styleClass="titulo" text="Ranking partida" />
+      <Pane layoutX="400.0" layoutY="136.0" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
+         <children>
+            <Label layoutX="15.0" layoutY="-3.0" styleClass="texto" text="Ganador ">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -8,12 +8,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RondaController">
     <children>
-        <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane1" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <PasswordField fx:id="numeroElejido" layoutX="270.0" layoutY="200.0" prefHeight="28.0" prefWidth="63.0" />
                 <Label fx:id="nombreJugador" layoutX="199.0" layoutY="83.0" styleClass="titulo" text="nombreJugador" />
                 <Label layoutX="187.0" layoutY="159.0" styleClass="texto" text="Escribe un numero del 0 al 100" />
-                <Button layoutX="254.0" layoutY="328.0" mnemonicParsing="false" onAction="#jugadorSiguiente" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
+                <Button layoutX="248.0" layoutY="329.0" mnemonicParsing="false" onAction="#jugadorSiguiente" prefHeight="42.0" prefWidth="104.0" text="Siguiente" />
             </children>
         </Pane>
     </children>

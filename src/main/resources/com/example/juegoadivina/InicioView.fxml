@@ -8,17 +8,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.InicioController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane">
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane1">
          <children>
-            <Button layoutX="135.0" layoutY="145.0" mnemonicParsing="false" onAction="#toHistoriaPortada" prefHeight="47.0" prefWidth="130.0" text="Jugar" />
-            <Button layoutX="135.0" layoutY="238.0" mnemonicParsing="false" onAction="#toRankingPortada" prefHeight="47.0" prefWidth="130.0" text="Ranking" />
-            <Button layoutX="335.0" layoutY="145.0" mnemonicParsing="false" onAction="#toInstruccionesPortada" prefHeight="47.0" prefWidth="130.0" text="Instrucciones" />
-            <Label layoutX="208.0" layoutY="45.0" prefHeight="56.0" prefWidth="183.0" styleClass="titulo" text="NOMBRE ISLA">
+            <Button layoutX="106.0" layoutY="145.0" mnemonicParsing="false" onAction="#toHistoriaPortada" prefHeight="47.0" prefWidth="159.0" text="Jugar">
                <font>
-                  <Font size="37.0" />
-               </font>
-            </Label>
-            <Button layoutX="335.0" layoutY="238.0" mnemonicParsing="false" onAction="#toHistorialPartidasPortada" prefHeight="47.0" prefWidth="130.0" text="Historial Partidas" />
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+            <Button layoutX="106.0" layoutY="238.0" mnemonicParsing="false" onAction="#toRankingPortada" prefHeight="47.0" prefWidth="159.0" text="Ranking" />
+            <Button layoutX="335.0" layoutY="145.0" mnemonicParsing="false" onAction="#toInstruccionesPortada" prefHeight="47.0" prefWidth="159.0" text="Instrucciones" />
+            <Button layoutX="335.0" layoutY="238.0" mnemonicParsing="false" onAction="#toHistorialPartidasPortada" prefHeight="47.0" prefWidth="159.0" text="Historial Partidas" />
+            <Pane layoutX="184.0" layoutY="45.0" prefHeight="60.0" prefWidth="232.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
+               <children>
+                  <Label layoutX="28.0" layoutY="2.0" prefHeight="56.0" prefWidth="177.0" text="LA ISLA" textFill="WHITE">
+                     <font>
+                        <Font name="Elephant" size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

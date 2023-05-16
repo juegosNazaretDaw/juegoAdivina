@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.HistorialPartidasController">
    <children>
-      <Pane layoutX="134.0" layoutY="41.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="134.0" layoutY="41.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="192.0" layoutY="30.0" styleClass="titulo" text="Historial Partidas" />
             <TableView layoutX="175.0" layoutY="100.0" prefHeight="200.0" prefWidth="261.0">
