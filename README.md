@@ -13,56 +13,56 @@
     
     Cuando iniciemos la aplicación, nos saldrá la interfaz del juego con cuatro botones:
     
-    ![Captura de pantalla 2023-05-16 194123.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194123.png)
+    ![Captura de pantalla 2023-05-16 194123.png](README%20Photos/Captura_de_pantalla_2023-05-16_194123.png)
     
     - Jugar
         
         Este botón, primero mostrará la historia del juego.
         
-        ![Captura de pantalla 2023-05-16 194155.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194155.png)
+        ![Captura de pantalla 2023-05-16 194155.png](README%20Photos/Captura_de_pantalla_2023-05-16_194155.png)
         
     
     Cuando le demos al botón “Siguiente”, nos mostrará la pantalla de cantidad jugadores.
     
     El mínimo de jugadores, serán dos y el máximo serán cinco. Si introducimos un número o carácter invalido nos saldrá un mensaje de error.
     
-    ![Captura de pantalla 2023-05-16 194200.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194200.png)
+    ![Captura de pantalla 2023-05-16 194200.png](README%20Photos/Captura_de_pantalla_2023-05-16_194200.png)
     
     Una vez le demos al botón de “Siguiente”, nos saldrá el registro o inicio de sesión:
     
-    ![Captura de pantalla 2023-05-16 194206.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194206.png)
+    ![Captura de pantalla 2023-05-16 194206.png](README%20Photos/Captura_de_pantalla_2023-05-16_194206.png)
     
     Si no tenemos cuenta, nos tendremos que registrar pulsando “Sign Up” y poniendo un correo, username y contraseña:
     
-    ![Captura de pantalla 2023-05-16 194213.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194213.png)
+    ![Captura de pantalla 2023-05-16 194213.png](README%20Photos/Captura_de_pantalla_2023-05-16_194213.png)
     
     Si tenemos cuenta, solamente tendremos que poner nickname y contraseña:
     
-    ![Captura de pantalla 2023-05-16 194210.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194210.png)
+    ![Captura de pantalla 2023-05-16 194210.png](README%20Photos/Captura_de_pantalla_2023-05-16_194210.png)
     
     Una vez todos los jugadores se hayan registrado o iniciado sesión, podremos empezar a jugar. Para jugar cada jugador tendrá que elegir un número del 2 al 100. 
     
-    ![Captura de pantalla 2023-05-16 194251.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194251.png)
+    ![Captura de pantalla 2023-05-16 194251.png](README%20Photos/Captura_de_pantalla_2023-05-16_194251.png)
     
     Cuando todos los jugadores hayan elegido el numero, saldrá la pantalla con el resultado de la ronda y el numero del resultado:
     
-    ![Captura de pantalla 2023-05-16 194309.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194309.png)
+    ![Captura de pantalla 2023-05-16 194309.png](README%20Photos/Captura_de_pantalla_2023-05-16_194309.png)
     
     Una vez, solo quede un jugador en vida, se mostrará una pantalla con el resultado de la partida, el nombre de el ganador y dos botones. El botón de “Volver” nos dirigirá a la pantalla principal del juego, mientras que el botón de “Volver  jugar” nos iniciara otra partida con los mismos jugadores.
     
-    ![Captura de pantalla 2023-05-16 194338.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194338.png)
+    ![Captura de pantalla 2023-05-16 194338.png](README%20Photos/Captura_de_pantalla_2023-05-16_194338.png)
     
     - Instrucciones
         
         Esté botón mostrará las instrucciones del juego.
         
-        ![Captura de pantalla 2023-05-16 194148.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194148.png)
+        ![Captura de pantalla 2023-05-16 194148.png](README%20Photos/Captura_de_pantalla_2023-05-16_194148.png)
         
     - Ranking
         
         Este botón mostrara el ranking de todos los jugadores con los campos: “Ranking”, “Nombre”, “Partidas Jugadas”, “Partidas Ganadas” y “Puntos”.
         
-        ![Captura de pantalla 2023-05-16 194143.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194143.png)
+        ![Captura de pantalla 2023-05-16 194143.png](README%20Photos/Captura_de_pantalla_2023-05-16_194143.png)
         
     - Historial partidas
         
@@ -70,7 +70,7 @@
         
         Puntos partida significa los puntos con los que se ha ganado.
         
-        ![Captura de pantalla 2023-05-16 194131.png](READ%20ME%20%F0%9F%91%8D%2008c508b3f5094ff599cd17e2e2c40cd0/Captura_de_pantalla_2023-05-16_194131.png)
+        ![Captura de pantalla 2023-05-16 194131.png](README%20Photos/Captura_de_pantalla_2023-05-16_194131.png)
     
 - Programación 😈
     
