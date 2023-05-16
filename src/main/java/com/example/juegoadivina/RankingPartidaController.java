@@ -89,7 +89,7 @@ public class RankingPartidaController {
 
 
         //close la conexion
-        mongoCon.close();
+//        mongoCon.close();
 
         //rellena jugadoresPartida a partir de la lista de jugadores que tenemos
         NombreJugadorController.fillJugadoresPartida();
@@ -106,7 +106,7 @@ public class RankingPartidaController {
         jugadoresPartida = new ArrayList<>();
 
         //close la conexion
-        mongoCon.close();
+//        mongoCon.close();
 
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

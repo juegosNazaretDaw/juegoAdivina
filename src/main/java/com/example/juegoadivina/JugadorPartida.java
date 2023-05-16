@@ -8,7 +8,7 @@ public class JugadorPartida extends Jugador{
     public boolean masCercano = false;
     public ArrayList<Integer> numerosElegidos = new ArrayList<>();
 
-    public JugadorPartida(Jugador jugador) throws Exception {
+    public JugadorPartida(Jugador jugador) {
         super(jugador.getRanking(), jugador.getNombre(), jugador.getEmail(), jugador.getPassword(), jugador.getPartidasJugadas(), jugador.getPartidasGanadas(), jugador.getPuntos());
         this.vidas = 5;
     }
@@ -16,7 +16,7 @@ public class JugadorPartida extends Jugador{
 //        super(ranking, nombre, email, password);
 //    }
 
-    public JugadorPartida(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
+    public JugadorPartida(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) {
         super(ranking, nombre, email, password, partidasJugadas, partidasGanadas, puntos);
         vidas = 5;
     }
