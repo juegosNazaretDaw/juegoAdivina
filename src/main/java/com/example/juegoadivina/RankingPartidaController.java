@@ -100,6 +100,10 @@ public class RankingPartidaController {
     void volver(ActionEvent event) throws IOException {
         //reboot the whole application to reset everything
 //        InicioApplication.rebootApplication(); //he comentado esto porque me da error
+        idRonda = -1;
+        //reset jugadoresPartida
+        jugadoresPartida = null;
+        jugadoresPartida = new ArrayList<>();
 
         //close la conexion
         mongoCon.close();

@@ -168,9 +168,6 @@ public class NombreJugadorController {
         //make sure the fields are not empty
         if ((!nombre.isEmpty()) && (!password.isEmpty())) {
 
-            System.out.println("el nombre: " + nombre);
-            System.out.println("la contraseña encryptada: " + password);
-
             if (mongoCon.isUserPassValid(nombre, password) != null) {
                 // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
                 Jugador jugador = mongoCon.isUserPassValid(nombre, password);
@@ -182,8 +179,8 @@ public class NombreJugadorController {
                 //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
 
                 //comments to delete
-                System.out.println("CantidadJugadoresController.cantidadJugadores: " + CantidadJugadoresController.cantidadJugadores);
-                System.out.println("CantidadJugadoresController.jugadoresPartida.size()" + jugadores.size());
+//                    System.out.println("CantidadJugadoresController.cantidadJugadores: " + CantidadJugadoresController.cantidadJugadores);
+//                    System.out.println("CantidadJugadoresController.jugadoresPartida.size()" + jugadores.size());
 
                 jugadorSiguiente(actionEvent);
 
@@ -219,11 +216,11 @@ public class NombreJugadorController {
                 jugadores.add(jugador);
 
                 //comments to delete
-                System.out.println("signUpMethod -> mongoCon.isNombreEmailAvailable(nombre, email) : true");
-                System.out.println("\tpasswordJugadorTF_PanelSUP.getText(): " + passwordJugadorTF_PanelSUP.getText() + " ---- " + password);
-                System.out.println("\tpasswordJugadorTF_PanelSUP.getText(): ENCRYPTED : " + PasswordEncrypter.encryptPassword(password));
-                System.out.println("\tCantidadJugadoresController.cantidadJugadores: " + CantidadJugadoresController.cantidadJugadores);
-                System.out.println("\tCantidadJugadoresController.jugadores.size(): " + jugadores.size());
+//                    System.out.println("signUpMethod -> mongoCon.isNombreEmailAvailable(nombre, email) : true");
+//                    System.out.println("\tpasswordJugadorTF_PanelSUP.getText(): " + passwordJugadorTF_PanelSUP.getText() + " ---- " + password);
+//                    System.out.println("\tpasswordJugadorTF_PanelSUP.getText(): ENCRYPTED : " + PasswordEncrypter.encryptPassword(password));
+//                    System.out.println("\tCantidadJugadoresController.cantidadJugadores: " + CantidadJugadoresController.cantidadJugadores);
+//                    System.out.println("\tCantidadJugadoresController.jugadores.size(): " + jugadores.size());
 
 
                 //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace

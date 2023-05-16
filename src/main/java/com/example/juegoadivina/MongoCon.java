@@ -39,10 +39,10 @@ public class MongoCon {
      */
     public static Jugador isUserPassValid(String nombre, String password) {
         //comments to delete
-        System.out.println("MongoCon: isUserPassValid");
-        System.out.println("\tin the database");
-        System.out.println("\tel nombre: " + nombre);
-        System.out.println("\tla contraseña encryptada: " + password);
+//            System.out.println("MongoCon: isUserPassValid");
+//            System.out.println("\tin the database");
+//            System.out.println("\tel nombre: " + nombre);
+//            System.out.println("\tla contraseña encryptada: " + password);
 
 
         Document query = new Document("nombre", nombre).append("contrasena", password);

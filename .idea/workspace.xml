@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9faf1450-f86d-4764-bbf0-4a323a7dee98" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/MongoCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/MongoCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/NombreJugadorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RankingPartidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RankingPartidaController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,16 +113,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/juegoadivina/RondaController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
