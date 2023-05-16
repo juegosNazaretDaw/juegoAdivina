@@ -1,7 +1,6 @@
 package com.example.juegoadivina;
 
 public class Jugador {
-    // la contraseña tiene que se guarda encrypted
     // partidas jugada y ganadas mejor seran como clave primaria de otra tabla (partida)
 
     //add the id. that is in the DB if it is necesary
@@ -10,13 +9,12 @@ public class Jugador {
     String nombre;
     String email;
     String password;
-    // contraseña no seria necesaria
     int partidasJugadas;
     int partidasGanadas;
     int puntos;
 
 
-    Jugador(int ranking, String nombre, String email, String password) throws Exception {
+    Jugador(int ranking, String nombre, String email, String password) {
         //Constructor de 2 parametros (nombre y password) para registrarse
 
         // ranking tenemos q darle el mayor (max from sql and add +1 to it)
@@ -30,7 +28,7 @@ public class Jugador {
         this.puntos = 0;
     }
 
-    public Jugador(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) throws Exception {
+    public Jugador(int ranking, String nombre, String email, String password, int partidasJugadas, int partidasGanadas, int puntos) {
         //constructor para iniciar session - todos los datos se cogen desde el resultado del query
         this.ranking = ranking;
         this.nombre = nombre;

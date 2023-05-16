@@ -180,8 +180,34 @@ public class MongoCon {
         }
     }
 
+    public List<Jugador> getAllJugadores() {
+        //sacar todos los jugadores para mostrarlos en RankingGeneral
+        List<Jugador> jugadores = new ArrayList<>();
 
-    // Rest of the methods...
+        FindIterable<Document> result = jugadorCollection.find();
+        MongoCursor<Document> cursor = result.iterator();
+
+        try {
+            while (cursor.hasNext()) {
+                Document document = cursor.next();
+
+                int ranking = document.getInteger("ranking");
+                String nombre = document.getString("nombre");
+                String email = document.getString("email");
+                String password = document.getString("contrasena");
+                int partidasJugadas = document.getInteger("partidasJugadas");
+                int partidasGanadas = document.getInteger("partidasGanadas");
+                int puntos = document.getInteger("puntos");
+
+                Jugador jugador = new Jugador(ranking, nombre, email, password, partidasJugadas, partidasGanadas, puntos);
+                jugadores.add(jugador);
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return jugadores;
+    }
 
     public void close() {
         // Close the MongoDB client and any other resources
