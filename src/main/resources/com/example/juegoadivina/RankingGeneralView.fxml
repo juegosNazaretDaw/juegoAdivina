@@ -12,17 +12,16 @@
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="166.0" layoutY="22.0" styleClass="titulo" text="Ranking General" />
-            <TableView layoutX="34.0" layoutY="79.0" prefHeight="242.0" prefWidth="509.0">
+            <TableView fx:id="tableView" layoutX="34.0" layoutY="79.0" prefHeight="242.0" prefWidth="509.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Puesto" />
-                <TableColumn prefWidth="75.0" text="Nombre" />
-                  <TableColumn prefWidth="100.0" text="Partidas Jugadas" />
-                  <TableColumn prefWidth="106.4000244140625" text="Partidas Ganadas" />
-                  <TableColumn prefWidth="75.0" text="Puntos" />
-                  <TableColumn prefWidth="75.0" text="Fecha" />
+                <TableColumn fx:id="rankingColumn" prefWidth="75.0" text="Ranking" />
+                <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="pJugadasColumn" prefWidth="100.0" text="Partidas Jugadas" />
+                  <TableColumn fx:id="pGanadasColumn" prefWidth="106.4000244140625" text="Partidas Ganadas" />
+                  <TableColumn fx:id="puntosColumn" prefWidth="75.0" text="Puntos" />
               </columns>
             </TableView>
-            <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#VolverPrincipio" prefHeight="42.0" prefWidth="92.0" text="Volver" />
+            <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#volver" prefHeight="42.0" prefWidth="92.0" text="Volver" />
              
          </children>
       </Pane>
