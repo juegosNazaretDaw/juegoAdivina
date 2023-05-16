@@ -15,6 +15,7 @@ public class Jugador {
     int partidasGanadas;
     int puntos;
 
+
     Jugador(int ranking, String nombre, String email, String password) throws Exception {
         //Constructor de 2 parametros (nombre y password) para registrarse
 
@@ -41,13 +42,8 @@ public class Jugador {
     }
 
 
-    private void setPassword(String password) throws Exception {
-        if (password.isEmpty()) {
-            //throw an error if la contraseña is empty
-            throw new Exception("cantraseña vacia");
-        }
-        //guardar la contraseña encryptada
-        this.password = PasswordEncrypter.encryptPassword(password);
+    private void setPassword(String password) {
+        this.password = password;
     }
 
     public int getRanking() {

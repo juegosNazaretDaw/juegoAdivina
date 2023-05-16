@@ -36,7 +36,7 @@
                         <Label layoutX="62.0" layoutY="56.0" styleClass="texto" text="Nickname" />
                         <Label layoutX="58.0" layoutY="91.0" styleClass="texto" text="Contraseña" />
                         <TextField fx:id="nombreJugadorTF_PanelSUP" layoutX="153.0" layoutY="52.0" />
-                        <Button fx:id="signUpMethod" layoutX="247.0" layoutY="144.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
+                        <Button layoutX="247.0" layoutY="144.0" mnemonicParsing="false" onAction="#signUpMethod" prefHeight="42.0" prefWidth="72.0" text="Sign up" />
                         <Button layoutX="99.0" layoutY="144.0" mnemonicParsing="false" onAction="#toPanelSignIn" prefHeight="42.0" prefWidth="72.0" text="Sign in" />
                         <Label layoutX="63.0" layoutY="18.0" styleClass="texto" text="Email" />
                         <TextField fx:id="emailJugadorTF_PanelSUP" layoutX="154.0" layoutY="14.0" />

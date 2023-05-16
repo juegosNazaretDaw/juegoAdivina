@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.juegoadivina.CantidadJugadoresController.idRonda;
-import static com.example.juegoadivina.CantidadJugadoresController.jugadoresPartida;
+import static com.example.juegoadivina.NombreJugadorController.jugadoresPartida;
 
 
 public class RondaController {
@@ -39,7 +39,7 @@ public class RondaController {
             do {
                 i++;
             } while (!jugadoresPartida.get(i).esVivo());
-        } catch (ArrayIndexOutOfBoundsException e) { //add the control para evitar este error
+        } catch (Exception e) { //add the control para evitar este error
         }
         changeLabelNombre();
     }
@@ -48,7 +48,6 @@ public class RondaController {
     void jugadorSiguiente(ActionEvent event) {
         //pasar a la pagina de resultadoRonda if (!(i < jugadoresPartida.size()))
         metodoPrinciapl(event);
-
 
     }
 
@@ -61,7 +60,7 @@ public class RondaController {
         //este metodo guarda el numeroAdivinado despues de controlarlo y controla a que portada pasar (jugadorSiguiente o rondaResultado)
 
         //make sure the number is valid
-        if (Integer.parseInt(numeroElejido.getText()) < 1 || Integer.parseInt(numeroElejido.getText()) > 100 || numeroElejido.getText().isEmpty()) {
+        if ((Integer.parseInt(numeroElejido.getText()) > 1 && Integer.parseInt(numeroElejido.getText()) < 100)) {
 
             //guardar el numero elejido en el arraylist 'numerosElejidos' del jugador actual
             jugadoresPartida.get(i).numerosElegidos.add(Integer.valueOf(numeroElejido.getText()));
@@ -71,7 +70,7 @@ public class RondaController {
                 do {
                     i++;
                 } while (!jugadoresPartida.get(i).esVivo());
-            } catch (ArrayIndexOutOfBoundsException e) { //add the control para evitar este error
+            } catch (Exception e) { //add the control para evitar este error
             }
 
             //ver cual seria la pagina siguiente jugadorSiguiente o rondaResultado
@@ -116,7 +115,7 @@ public class RondaController {
         //calcular la suma de los numeros adivinados
         int suma = 0; // la suma de los numeros adivinados
         for (int j = 0; j < jugadoresPartida.size(); j++) { //bouclear a todos los jugadores de la partida
-            if (jugadoresPartida.get(i).esVivo()) { //ver solamete quien es vivo
+            if (jugadoresPartida.get(j).esVivo()) { //ver solamete quien es vivo
                 suma += jugadoresPartida.get(j).getNumeroElegido();
             }
         }
@@ -172,7 +171,8 @@ public class RondaController {
     public static int cantidadVivosRonda() {
         int cantidadVivos = 0; //la cantidad de los jugadores vivos en la ronda
         for (int j = 0; j < jugadoresPartida.size(); j++) {
-            cantidadVivos++;
+            if (jugadoresPartida.get(j).esVivo())
+                cantidadVivos++;
         }
         return cantidadVivos;
     }

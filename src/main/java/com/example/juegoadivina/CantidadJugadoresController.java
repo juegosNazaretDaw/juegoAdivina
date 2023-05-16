@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class CantidadJugadoresController {
     private Stage stage;
@@ -21,8 +20,8 @@ public class CantidadJugadoresController {
     public static int cantidadJugadores;
     public static int idRonda = -1;
 
-    public static ArrayList<Jugador> jugadores = new ArrayList<>(); //donde se guardan los jugadores
-    public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
+//    public static ArrayList<Jugador> jugadores = new ArrayList<>(); //donde se guardan los jugadores
+//    public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
 
     @FXML
     private TextField cantidadJugadoresTF;
@@ -35,8 +34,8 @@ public class CantidadJugadoresController {
     public void initialize() {
         //reset the static data
         idRonda = -1;
-        jugadores = new ArrayList<>();
-        jugadoresPartida = new ArrayList<>();
+//        jugadores = new ArrayList<>();
+//        jugadoresPartida = new ArrayList<>();
     }
 
 

@@ -13,7 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 public class NombreJugadorController {
     //despues de tener la cantidad, crear una lista de jugadores cada uno con su nombre
@@ -31,6 +31,9 @@ public class NombreJugadorController {
 
     private Stage stage;
     private Scene scene;
+    MongoCon mongoCon;
+    public static ArrayList<Jugador> jugadores = new ArrayList<>(); //donde se guardan los jugadores
+    public static ArrayList<JugadorPartida> jugadoresPartida = new ArrayList<>(); //donde se guardan los jugadores de la partida
 
     @FXML
     private TextField emailJugadorTF_PanelSUP; //El TEXTFIELD del email de jugador en el panel Sign up
@@ -71,6 +74,9 @@ public class NombreJugadorController {
         panelPrincipal.setVisible(true);
         panelSignIn.setVisible(false);
         panelSignUp.setVisible(false);
+
+        mongoCon = new MongoCon();
+
     }
 
     public String getNumereoJugadorActual() {
@@ -84,8 +90,8 @@ public class NombreJugadorController {
         //volver a la portada de inicio y reset todos los datos
 
         //reset the value of the arralist of Jugadores and JugadoresPartida
-        CantidadJugadoresController.jugadores = null;
-        CantidadJugadoresController.jugadoresPartida = null;
+        jugadores = null;
+        jugadoresPartida = null;
 
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -99,7 +105,7 @@ public class NombreJugadorController {
         //pasar al jugador siguiente o al portada del juego
         //true -> ir a la pagina del siguiente jugador
         //false -> ir a la pagina de juego (RondaView)
-        if (CantidadJugadoresController.cantidadJugadores < CantidadJugadoresController.jugadoresPartida.size()) {
+        if (jugadores.size() < CantidadJugadoresController.cantidadJugadores) {
             //reset all the textfields
             resetTextFields();
 
@@ -109,6 +115,10 @@ public class NombreJugadorController {
         } else {
             //cuando estamos en la pagina del ultimo jugador -> pasar al juego
             fillJugadoresPartida();
+
+            //close la conexion
+            mongoCon.close();
+
             //Crear la lista de JugadoresPartida
             Parent root = FXMLLoader.load(getClass().getResource("RondaView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -157,15 +167,21 @@ public class NombreJugadorController {
 
         //make sure the fields are not empty
         if ((!nombre.isEmpty()) && (!password.isEmpty())) {
-            if (MongoCon.isUserPassValid(nombre, password) != null) {
+
+            if (mongoCon.isUserPassValid(nombre, password) != null) {
                 // get all the info of this user from the query's result and save it to arraylist jugadoresPartida
-                Jugador jugador = MongoCon.isUserPassValid(nombre, password);
+                Jugador jugador = mongoCon.isUserPassValid(nombre, password);
                 /*en nombreJugador en vez de crear JugadorPartida a la vez con Jugador -> crear una lista de Jugador primero y despues de tenerla hecha creamos una lista de JugadorPartida a partir de la primera lista*/
 
                 //añadir este jugador a la lista de los jugadores
-                CantidadJugadoresController.jugadores.add(jugador);
+                jugadores.add(jugador);
 
                 //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
+
+                //comments to delete
+//                    System.out.println("CantidadJugadoresController.cantidadJugadores: " + CantidadJugadoresController.cantidadJugadores);
+//                    System.out.println("CantidadJugadoresController.jugadoresPartida.size()" + jugadores.size());
+
                 jugadorSiguiente(actionEvent);
 
             } else {
@@ -189,15 +205,23 @@ public class NombreJugadorController {
         //make sure the fields are not empty
         if ((!nombre.isEmpty()) && (!email.isEmpty()) && (!password.isEmpty())) {
             //make sure there is no user with this nombre or email
-            if (MongoCon.isNombreEmailAvailable(nombre, email)) {
+            if (mongoCon.isNombreEmailAvailable(nombre, email) ) {
                 //crear objeto de este jugador
-                Jugador jugador = new Jugador(MongoCon.getLatestRank() + 1, nombre, email, PasswordEncrypter.encryptPassword(password)); //darle el ultimo rank+1
+                Jugador jugador = new Jugador(mongoCon.getLatestRank() + 1, nombre, email, PasswordEncrypter.encryptPassword(password)); //darle el ultimo rank+1
 
                 //llamar a un metodo para insertar el jugador a la base datos
                 MongoCon.signUp(jugador);
 
                 //añadir este jugador a la lista de los jugadores
-                CantidadJugadoresController.jugadores.add(jugador);
+                jugadores.add(jugador);
+
+                //comments to delete
+//                    System.out.println("signUpMethod -> mongoCon.isNombreEmailAvailable(nombre, email) : true");
+//                    System.out.println("\tpasswordJugadorTF_PanelSUP.getText(): " + passwordJugadorTF_PanelSUP.getText() + " ---- " + password);
+//                    System.out.println("\tpasswordJugadorTF_PanelSUP.getText(): ENCRYPTED : " + PasswordEncrypter.encryptPassword(password));
+//                    System.out.println("\tCantidadJugadoresController.cantidadJugadores: " + CantidadJugadoresController.cantidadJugadores);
+//                    System.out.println("\tCantidadJugadoresController.jugadores.size(): " + jugadores.size());
+
 
                 //pasar a la otra pagina : mejor que se hace a partir de llamar a un metodo que lo hace
                 jugadorSiguiente(actionEvent);
@@ -214,10 +238,10 @@ public class NombreJugadorController {
     static void fillJugadoresPartida() throws Exception {
         //method to fill the JugadoresPartida a partir de la lista Jugadores
         //it is called just before passing to the game (rondaView)
-        for (int i = 0; i < CantidadJugadoresController.jugadores.size(); i++) {
+        for (int i = 0; i < jugadores.size(); i++) {
             //crear JugadorPartida a partir de el objeto Jugador
-            JugadorPartida jugadorPartida = new JugadorPartida(CantidadJugadoresController.jugadores.get(i));
-            CantidadJugadoresController.jugadoresPartida.add(jugadorPartida);
+            JugadorPartida jugadorPartida = new JugadorPartida(jugadores.get(i));
+            jugadoresPartida.add(jugadorPartida);
         }
     }
 }

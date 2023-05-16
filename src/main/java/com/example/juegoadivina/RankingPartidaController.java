@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -19,11 +20,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.juegoadivina.CantidadJugadoresController.*;
+import static com.example.juegoadivina.NombreJugadorController.*;
 
 public class RankingPartidaController {
 
+    @FXML
+    public Label ganadorLabel;
     Stage stage;
     Scene scene;
+
+    MongoCon mongoCon;
 
 
     @FXML
@@ -35,7 +41,7 @@ public class RankingPartidaController {
     @FXML
     private TableColumn<JugadorPartida, Integer> puntosColumn;
 
-    ObservableList<JugadorPartida> jugadoresPartidaObservable = FXCollections.observableArrayList(CantidadJugadoresController.jugadoresPartida);
+    ObservableList<JugadorPartida> jugadoresPartidaObservable = FXCollections.observableArrayList(jugadoresPartida);
 
     @FXML
     public void initialize() {
@@ -62,6 +68,8 @@ public class RankingPartidaController {
 
         tableView.setItems(jugadoresPartidaObservable);
 
+        //set the ganador in  the ganadorLabel
+        ganadorLabel.setText(getGanador());
         //actualizar los datos en la base de datos
         insertToDB();
 
@@ -78,6 +86,11 @@ public class RankingPartidaController {
         //reset jugadoresPartida
         jugadoresPartida = null;
         jugadoresPartida = new ArrayList<>();
+
+
+        //close la conexion
+        mongoCon.close();
+
         //rellena jugadoresPartida a partir de la lista de jugadores que tenemos
         NombreJugadorController.fillJugadoresPartida();
 
@@ -86,7 +99,14 @@ public class RankingPartidaController {
     @FXML
     void volver(ActionEvent event) throws IOException {
         //reboot the whole application to reset everything
-        InicioApplication.rebootApplication();
+//        InicioApplication.rebootApplication(); //he comentado esto porque me da error
+        idRonda = -1;
+        //reset jugadoresPartida
+        jugadoresPartida = null;
+        jugadoresPartida = new ArrayList<>();
+
+        //close la conexion
+        mongoCon.close();
 
         Parent root = FXMLLoader.load(getClass().getResource("InicioView.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -107,7 +127,7 @@ public class RankingPartidaController {
         //add a method to insert the partida and Rondas values to the DB
 
         //update the ranking according to the puntos of every Jugador
-        MongoCon.updateRanking();
+        mongoCon.updateRanking();
     }
 
     void updateJugadoresArray() {
@@ -132,8 +152,18 @@ public class RankingPartidaController {
     void updateJugadorCollection() {
         //actualizar los campos de cada jugador en la base de datos
         for (int i = 0; i < jugadores.size(); i++) {
-            MongoCon.updateJugador(jugadores.get(i));
+            mongoCon.updateJugador(jugadores.get(i));
         }
+    }
+
+    String getGanador() {
+        //devuelve el nombre del ganador para ponerlo en el Label
+        String ganadorNombre = "";
+        for (int j = 0; j < jugadoresPartida.size() ; j++) {
+            if (jugadoresPartida.get(j).esVivo())
+                ganadorNombre = jugadoresPartida.get(j).getNombre();
+        }
+        return ganadorNombre;
     }
 
 }
