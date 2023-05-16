@@ -10,15 +10,15 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane">
          <children>
-            <Button layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#toHistoriaPortada" prefHeight="47.0" prefWidth="112.0" text="Jugar" />
-            <Button layoutX="150.0" layoutY="243.0" mnemonicParsing="false" onAction="#toRankingPortada" prefHeight="47.0" prefWidth="112.0" text="Ranking" />
-            <Button layoutX="350.0" layoutY="150.0" mnemonicParsing="false" onAction="#toInstruccionesPortada" prefHeight="47.0" prefWidth="112.0" text="Instrucciones" />
-            <Label layoutX="186.0" layoutY="46.0" prefHeight="54.0" prefWidth="234.0" styleClass="titulo" text="NOMBRE ISLA">
+            <Button layoutX="135.0" layoutY="145.0" mnemonicParsing="false" onAction="#toHistoriaPortada" prefHeight="47.0" prefWidth="130.0" text="Jugar" />
+            <Button layoutX="135.0" layoutY="238.0" mnemonicParsing="false" onAction="#toRankingPortada" prefHeight="47.0" prefWidth="130.0" text="Ranking" />
+            <Button layoutX="335.0" layoutY="145.0" mnemonicParsing="false" onAction="#toInstruccionesPortada" prefHeight="47.0" prefWidth="130.0" text="Instrucciones" />
+            <Label layoutX="208.0" layoutY="45.0" prefHeight="56.0" prefWidth="183.0" styleClass="titulo" text="NOMBRE ISLA">
                <font>
                   <Font size="37.0" />
                </font>
             </Label>
-            <Button layoutX="350.0" layoutY="243.0" mnemonicParsing="false" onAction="#toHistorialPartidasPortada" prefHeight="47.0" prefWidth="112.0" text="Historial Partidas" />
+            <Button layoutX="335.0" layoutY="238.0" mnemonicParsing="false" onAction="#toHistorialPartidasPortada" prefHeight="47.0" prefWidth="130.0" text="Historial Partidas" />
          </children>
       </Pane>
    </children>

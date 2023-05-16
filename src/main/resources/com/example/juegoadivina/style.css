@@ -2,29 +2,81 @@
   -fx-background-image: url('./img/isla.jpeg');
 
   -fx-background-position: center center;
-
 }
 .titulo {
-    -fx-font-size: 37px;
-    -fx-text-fill: black;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+    -fx-background-color: #37474f;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, #37474f, 10, 0, 0, 0);
 }
+
 .texto {
-    -fx-background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco con 70% de opacidad */
-    -fx-text-fill: black; /* Letra negra */
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 5px;
 }
 
-.button{
-
-    -fx-background-color: white;
-    -fx-border-color: black;
-    -fx-text-fill: black;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
+.button {
+    -fx-background-color: #37474f;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 6px 12px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, #37474f, 5, 0, 0, 0);
 }
 
 .button:hover {
-    -fx-background-color: black;
-    -fx-border-color: white;
-    -fx-text-fill: white;
+    -fx-background-color: #22303b;
 }
 
+.button:pressed {
+    -fx-background-color: #22303b;
+}
+
+.button:disabled {
+    -fx-opacity: 0.5;
+}
+
+.table-view {
+    -fx-background-color: #37474f;
+    -fx-font-size: 14px;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #22303b;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #37474f;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-padding: 5px;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #22303b;
+}
+
+.table-view .table-cell {
+    -fx-alignment: center;
+    -fx-padding: 5px;
+}
+
+.table-view .table-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell:empty:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .table-cell .text {
+    -fx-font-weight: bold;
+}

@@ -5,18 +5,26 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RankingPartidaController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RankingPartidaController">
    <children>
-      <TableView fx:id="tableView" layoutX="57.0" layoutY="78.0" prefHeight="200.0" prefWidth="228.0">
+      <TableView fx:id="tableView" layoutX="54.0" layoutY="113.0" prefHeight="200.0" prefWidth="151.0">
         <columns>
           <TableColumn fx:id="jugadorColumn" prefWidth="75.0" text="Jugador" />
             <TableColumn fx:id="puntosColumn" prefWidth="75.0" text="puntos" />
         </columns>
       </TableView>
-      <Button layoutX="487.0" layoutY="317.0" mnemonicParsing="false" onAction="#replay" text="volver a jugar" />
-      <Button layoutX="395.0" layoutY="317.0" mnemonicParsing="false" onAction="#volver" text="volver" />
-      <Label layoutX="419.0" layoutY="140.0" text="Ganador " />
-      <Label fx:id="ganadorLabel" layoutX="429.0" layoutY="170.0" />
+      <Button layoutX="471.0" layoutY="317.0" mnemonicParsing="false" onAction="#replay" prefHeight="40.0" prefWidth="95.0" text="Volver a jugar" />
+      <Button layoutX="374.0" layoutY="317.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="72.0" text="Volver" />
+      <Label layoutX="372.0" layoutY="113.0" styleClass="texto" text="Ganador ">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
+      <Label fx:id="ganadorLabel" layoutX="409.0" layoutY="164.0" style="-fx-text-fill: #00EF81; -fx-background-color: white;">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="182.0" layoutY="14.0" styleClass="titulo" text="Rankin partida" />
    </children>
 </AnchorPane>
