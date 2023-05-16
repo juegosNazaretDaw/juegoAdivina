@@ -18,14 +18,6 @@
       </TableView>
       <Button layoutX="424.0" layoutY="313.0" mnemonicParsing="false" onAction="#replay" prefHeight="40.0" prefWidth="151.0" text="Volver a jugar" />
       <Button layoutX="333.0" layoutY="313.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="75.0" text="Volver" />
-      <Pane layoutX="400.0" layoutY="172.0" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
-         <children>
-            <Label fx:id="ganadorLabel" style="-fx-text-fill: #00EF81; -fx-background-color: white;">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children></Pane>
       <Label layoutX="206.0" layoutY="31.0" styleClass="titulo" text="Ranking partida" />
       <Pane layoutX="400.0" layoutY="136.0" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
          <children>
@@ -36,5 +28,10 @@
             </Label>
          </children>
       </Pane>
+      <Label fx:id="ganadorLabel" layoutX="422.0" layoutY="178.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8;" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

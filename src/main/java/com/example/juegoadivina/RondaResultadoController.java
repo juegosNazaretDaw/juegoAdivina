@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static com.example.juegoadivina.CantidadJugadoresController.idRonda;
@@ -51,10 +52,13 @@ public class RondaResultadoController {
 
     public void initialize() {
         //set up the idRondaLabel
-        idRondaLabel.setText(String.valueOf(idRonda));
+        idRondaLabel.setText(String.valueOf(idRonda + 1));
 
-        //set the result number label
-        resultadoLabel.setText(String.valueOf(resultadoRonda));
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String formattedNumber = decimalFormat.format(resultadoRonda);
+
+        //set the result number label (formatted (only 2 numbers after the comma))
+        resultadoLabel.setText(String.valueOf(formattedNumber));
 
         // Set up the cell value factory for jugadorColumn using a Callback
         jugadorColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<JugadorPartida, String>, ObservableValue<String>>() {

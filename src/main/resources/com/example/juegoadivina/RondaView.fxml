@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RondaController">
     <children>
@@ -12,8 +13,13 @@
             <children>
                 <PasswordField fx:id="numeroElejido" layoutX="270.0" layoutY="200.0" prefHeight="28.0" prefWidth="63.0" />
                 <Label fx:id="nombreJugador" layoutX="199.0" layoutY="83.0" styleClass="titulo" text="nombreJugador" />
-                <Label layoutX="187.0" layoutY="159.0" styleClass="texto" text="Escribe un numero del 0 al 100" />
+                <Label layoutX="187.0" layoutY="159.0" styleClass="texto" text="Escribe un numero del 2 al 100" />
                 <Button layoutX="248.0" layoutY="329.0" mnemonicParsing="false" onAction="#jugadorSiguiente" prefHeight="42.0" prefWidth="104.0" text="Siguiente" />
+            <Label fx:id="errorLabel" layoutX="277.0" layoutY="268.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </children>

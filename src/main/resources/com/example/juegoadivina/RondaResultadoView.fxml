@@ -21,11 +21,11 @@
                     <TableColumn fx:id="numeroElegidoColumn" prefWidth="111.79998779296875" text="NumeroElejido" />
                 </columns>
             </TableView>
-            <Label layoutX="350.0" layoutY="123.0" styleClass="texto" text="Resultado numero">
+            <Label layoutX="350.0" layoutY="123.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8;" styleClass="texto" text="Resultado numero">
                <font>
                   <Font size="25.0" />
                </font></Label>
-            <Label fx:id="resultadoLabel" layoutX="408.0" layoutY="172.0" styleClass="texto" text="X">
+            <Label fx:id="resultadoLabel" layoutX="408.0" layoutY="172.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8;" styleClass="texto" text="X">
                <font>
                   <Font size="25.0" />
                </font></Label>

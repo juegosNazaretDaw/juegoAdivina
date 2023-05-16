@@ -27,6 +27,9 @@ public class RondaController {
     @FXML
     private PasswordField numeroElejido;
 
+    @FXML
+    private Label errorLabel;
+
     int i;
     public static double resultadoRonda;
 
@@ -60,7 +63,7 @@ public class RondaController {
         //este metodo guarda el numeroAdivinado despues de controlarlo y controla a que portada pasar (jugadorSiguiente o rondaResultado)
 
         //make sure the number is valid
-        if ((Integer.parseInt(numeroElejido.getText()) > 1 && Integer.parseInt(numeroElejido.getText()) < 100)) {
+        if ((Integer.parseInt(numeroElejido.getText()) > 1 && Integer.parseInt(numeroElejido.getText()) < 100) && numeroElejido.getText() != "") {
 
             //guardar el numero elejido en el arraylist 'numerosElejidos' del jugador actual
             jugadoresPartida.get(i).numerosElegidos.add(Integer.valueOf(numeroElejido.getText()));
@@ -91,6 +94,7 @@ public class RondaController {
         } else {
             //set a label error
             System.out.println("el numero esta mal ");
+            errorLabel.setText("el numero esta mal");
         }
     }
 
