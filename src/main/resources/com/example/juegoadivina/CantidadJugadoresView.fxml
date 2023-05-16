@@ -9,19 +9,27 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.CantidadJugadoresController">
     <children>
-        <Pane layoutX="177.0" layoutY="29.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane layoutX="177.0" layoutY="29.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane2" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <TextField fx:id="cantidadJugadoresTF" layoutX="226.0" layoutY="188.0" />
-                <Label layoutX="101.0" layoutY="44.0" prefHeight="54.0" prefWidth="399.0" styleClass="titulo" text="Cuantos jugadores sois?" />
-                <Label layoutX="222.0" layoutY="137.0" prefHeight="17.0" prefWidth="155.0" styleClass="texto" text="Pon el numero de jugadores" />
-                <Button layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#ElegirNombres" prefHeight="42.0" prefWidth="92.0" text="Siguiente" />
-                <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#Volver" prefHeight="42.0" prefWidth="92.0" text="Volver" />
-                <Label layoutX="217.0" layoutY="165.0" styleClass="texto" text="Mínimo 2 Jugadores, Máximo 5" />
+                <TextField fx:id="cantidadJugadoresTF" layoutX="226.0" layoutY="200.0" />
+                <Label layoutX="152.0" layoutY="37.0" prefHeight="56.0" prefWidth="297.0" styleClass="titulo" text="Cuantos jugadores sois?" />
+                <Button layoutX="153.0" layoutY="332.0" mnemonicParsing="false" onAction="#ElegirNombres" prefHeight="42.0" prefWidth="105.0" text="Siguiente" />
+                <Button layoutX="37.0" layoutY="332.0" mnemonicParsing="false" onAction="#Volver" prefHeight="42.0" prefWidth="105.0" text="Volver" />
             <Label fx:id="errorMessage" layoutX="166.0" layoutY="239.0" text="Error la cantidad esta mal" textFill="RED" visible="false">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </Label>
+            <Pane layoutX="195.0" layoutY="126.0" prefHeight="26.0" prefWidth="211.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
+               <children>
+                      <Label layoutX="-5.0" layoutY="-4.0" prefHeight="35.0" prefWidth="222.0" styleClass="texto" text="Pon el numero de jugadores" />
+               </children>
+            </Pane>
+            <Pane layoutX="184.0" layoutY="162.0" prefHeight="26.0" prefWidth="232.0" style="-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 8px;">
+               <children>
+                      <Label layoutY="-4.0" prefHeight="16.0" prefWidth="232.0" styleClass="texto" text="Mínimo 2 Jugadores, Máximo 5" />
+               </children>
+            </Pane>
             </children>
         </Pane>
     </children>

@@ -9,16 +9,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoadivina.RankingGeneralController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="pane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="166.0" layoutY="22.0" styleClass="titulo" text="Ranking General" />
-            <TableView fx:id="tableView" layoutX="34.0" layoutY="79.0" prefHeight="242.0" prefWidth="509.0">
+            <Label layoutX="196.0" layoutY="36.0" styleClass="titulo" text="Ranking General" />
+            <TableView fx:id="tableView" layoutX="59.0" layoutY="114.0" prefHeight="192.0" prefWidth="482.0">
               <columns>
                 <TableColumn fx:id="rankingColumn" prefWidth="75.0" text="Ranking" />
                 <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
-                  <TableColumn fx:id="pJugadasColumn" prefWidth="100.0" text="Partidas Jugadas" />
-                  <TableColumn fx:id="pGanadasColumn" prefWidth="106.4000244140625" text="Partidas Ganadas" />
-                  <TableColumn fx:id="puntosColumn" prefWidth="75.0" text="Puntos" />
+                  <TableColumn fx:id="pJugadasColumn" prefWidth="123.20001220703125" text="Partidas Jugadas" />
+                  <TableColumn fx:id="pGanadasColumn" prefWidth="127.199951171875" text="Partidas Ganadas" />
+                  <TableColumn fx:id="puntosColumn" prefWidth="79.5999755859375" text="Puntos" />
               </columns>
             </TableView>
             <Button layoutX="50.0" layoutY="332.0" mnemonicParsing="false" onAction="#volver" prefHeight="42.0" prefWidth="92.0" text="Volver" />
