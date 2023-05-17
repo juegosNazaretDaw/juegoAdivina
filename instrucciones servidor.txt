@@ -1,0 +1,28 @@
+1. Conectarse al servidor:
+	ssh <nombre_de_usuario>@<dirección_ip_o_nombre_de_dominio>
+
+2. Enviar toda la carpeta del reto
+	scp -r directorio_origen usuario@<dirección_ip_o_nombre_de_dominio>:/home/usuario
+
+3. Sin salir del servidor ir a la carpeta que acabamos de enviar del reto hasta el directorio
+ donde se encuentra el docker-compose.yml
+
+4. Ejecutar en la terminal del servidor docker compose up
+
+5. Esperar a que se descargue, instale y ejecute todos los containers
+
+6. Comprobar que Mongo, php y Apache funcionan (docker ps)
+
+7. Si todo es correcto la web se tendria que ver escribiendo en el navegador
+la ip_del_servidor/index.html
+
+
+Posibles errores con la conexion de apache o mongo:
+
+-Si la pagina no se ve o el ranking, login, etc dan algun error comprobar la ip usando:
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nombre_contenedor
+
+-Comprobamos que en la pagina web tengan la misma ip:
+	entramos en apache usando ❯ docker exec -it apache /bin/bash > cd htdocs > y con nano entramos y
+	 editamos la ip del archivo que nos esta dando problemas de conexion
+

@@ -1,0 +1,107 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  height: 100%;
+  font-family: sans-serif;
+  color: #213b4c;
+  background-image: url(/imagenes/isla2.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#app h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 80px;
+}
+
+#app table {
+  width: 80%;
+  border-spacing: 0 0;
+  background: #213b4c;
+  color: white;
+  box-shadow: 0 0 20px #1e3344;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+  
+  #app table th {
+    background: #0c1e28;
+    border: none; /* Elimina los bordes de las celdas */
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    padding: 20px 0px 20px 0px; /* Añade espacio alrededor del texto en las celdas */
+  }
+  
+  #app table th:first-of-type {
+    padding: 0 30px 0 30px; /* Añade más espacio en la primera celda de la tabla */
+    text-align: center;
+  }
+  
+  #app table th:last-of-type {
+    padding: 0 30px 0 30px; /* Añade más espacio en la última celda de la tabla */
+  }
+  
+  #app table th:nth-child(4),
+  #app table th:nth-child(5) {
+    text-align: center;
+    cursor: pointer; /* Cambia el cursor del mouse al pasar sobre las celdas */
+  }
+  
+  #app table tr:nth-child(2n + 1) {
+    background: #1e3344; /* Cambia el color de fondo de cada fila de la tabla */
+  }
+  
+  #app table td {
+    padding: 10px 0px; /* Añade espacio alrededor del texto en las celdas */
+  }
+  
+  #app table td:first-child {
+    padding: 10px 30px 10px 30px; /* Añade más espacio en la primera celda de cada fila */
+    text-align: center;
+  }
+  
+  #app table td:nth-child(4),
+  #app table td:nth-child(5) {
+    text-align: center;
+  }
+  
+  #app table tr:hover {
+    background: #18a5fe; /* Cambia el color de fondo de las filas al pasar el mouse sobre ellas */
+  }
+  
+  #app a {
+    color: white;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+  }
+  
+  #app a:hover {
+    color: white;
+  }
+  
+  #app .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #213b4c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  #app .btn:hover {
+    background-color: #0c1e28;
+  }
+  
